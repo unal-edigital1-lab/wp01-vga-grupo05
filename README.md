@@ -4,7 +4,7 @@
  Integrantes:
 -------
 * Johan Sebastian Molina
-* Paula Sofia Medina
+* Paula Sofía Medina
 * Maria Alejandra Salgado
 
 Pregunta 1:
