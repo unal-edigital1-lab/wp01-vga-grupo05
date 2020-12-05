@@ -1,23 +1,5 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:    10:46:19 11/04/2020
-// Design Name: 
-// Module Name:    test_VGA
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
+
 module test_VGA(
     input wire clk,           // board clock: 32 MHz quacho 100 MHz nexys4 
     input wire rst,         	// reset button
@@ -25,9 +7,9 @@ module test_VGA(
 	// VGA input/output  
     output wire VGA_Hsync_n,  // horizontal sync output
     output wire VGA_Vsync_n,  // vertical sync output
-    output wire [3:0] VGA_R,	// 4-bit VGA red output
-    output wire [3:0] VGA_G,  // 4-bit VGA green output
-    output wire [3:0] VGA_B,  // 4-bit VGA blue output
+    output wire VGA_R,	// 4-bit VGA red output
+    output wire VGA_G,  // 4-bit VGA green output
+    output wire VGA_B,  // 4-bit VGA blue output
     output wire clkout,  
  	
 	// input/output
@@ -38,17 +20,16 @@ module test_VGA(
 		
 );
 
-// TAMAÑO DE visualización 
-parameter CAM_SCREEN_X = 160;
+// TAMAÑO DE visualización ----176x120
+parameter CAM_SCREEN_X = 176;
 parameter CAM_SCREEN_Y = 120;
-
 localparam AW = 15; // LOG2(CAM_SCREEN_X*CAM_SCREEN_Y)
-localparam DW = 12;
+localparam DW = 3;//antes estaba 12
 
-// El color es RGB 444
-localparam RED_VGA =   12'b111100000000;
-localparam GREEN_VGA = 12'b000011110000;
-localparam BLUE_VGA =  12'b000000001111;
+// El color es RGB 111
+localparam RED_VGA =   3'b100;
+localparam GREEN_VGA = 3'b010;
+localparam BLUE_VGA =  3'b001;
 
 
 // Clk 
@@ -70,45 +51,45 @@ wire [9:0]VGA_posX;		   // Determinar la pos de memoria que viene del VGA
 wire [8:0]VGA_posY;		   // Determinar la pos de memoria que viene del VGA
 
 
-/* ****************************************************************************
+/* **************************
 la pantalla VGA es RGB 444, pero el almacenamiento en memoria se hace 332
 por lo tanto, los bits menos significactivos deben ser cero
-**************************************************************************** */
-	assign VGA_R = data_RGB444[11:8];
-	assign VGA_G = data_RGB444[7:4];
-	assign VGA_B = data_RGB444[3:0];
+************************** */
+	assign VGA_R = data_RGB444[2];
+	assign VGA_G = data_RGB444[1];
+	assign VGA_B = data_RGB444[0];
 
 
 
 
 
-/* ****************************************************************************
+/* **************************
   Este bloque se debe modificar según sea le caso. El ejemplo esta dado para
   fpga Spartan6 lx9 a 32MHz.
   usar "tools -> IP Generator ..."  y general el ip con Clocking Wizard
   el bloque genera un reloj de 25Mhz usado para el VGA , a partir de una frecuencia de 12 Mhz
-**************************************************************************** */
+************************** */
 assign clk12M =clk;
 
-/*
+
 cl_25_24_quartus clk25(
-	.areset(rst),
+	.areset(0),
 	.inclk0(clk12M),
 	.c0(clk25M)
 	
 );
-*/
 
 
-assign clk25M=clk;
+
+//assign clk25M=clk;
 assign clkout=clk25M;
 
-/* ****************************************************************************
+/* **************************
 buffer_ram_dp buffer memoria dual port y reloj de lectura y escritura separados
 Se debe configurar AW  según los calculos realizados en el Wp01
 se recomiendia dejar DW a 8, con el fin de optimizar recursos  y hacer RGB 332
-**************************************************************************** */
-buffer_ram_dp #( AW,DW,"C:/Users/UECCI/Desktop/proyecto_digital1 2020-2/quartus/scr/image.men")
+************************** */
+buffer_ram_dp #( AW,DW,"C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/image.men")
 	DP_RAM(  
 	.clk_w(clk25M), 
 	.addr_in(DP_RAM_addr_in), 
@@ -121,9 +102,9 @@ buffer_ram_dp #( AW,DW,"C:/Users/UECCI/Desktop/proyecto_digital1 2020-2/quartus/
 	);
 	
 
-/* ****************************************************************************
-VGA_Driver640x480
-**************************************************************************** */
+/* **************************
+VGA_Driver640x480 ---- 176x120
+************************** */
 VGA_Driver640x480 VGA640x480
 (
 	.rst(rst),
@@ -139,11 +120,11 @@ VGA_Driver640x480 VGA640x480
 );
 
  
-/* ****************************************************************************
+/* **************************
 LÓgica para actualizar el pixel acorde con la buffer de memoria y el pixel de 
 VGA si la imagen de la camara es menor que el display  VGA, los pixeles 
 adicionales seran iguales al color del último pixel de memoria 
-**************************************************************************** */
+************************** */
 
 always @ (VGA_posX, VGA_posY) begin
 		if ((VGA_posX>CAM_SCREEN_X-1) || (VGA_posY>CAM_SCREEN_Y-1))
@@ -155,10 +136,10 @@ end
 
 //assign DP_RAM_addr_out=10000;
 
-/*****************************************************************************
+/***************************
 
 este bloque debe crear un nuevo archivo 
-**************************************************************************** */
+************************** */
  FSM_game  juego(
 	 	.clk(clk25M),
 		.rst(rst),
