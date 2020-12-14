@@ -1,5 +1,5 @@
-Analysis & Synthesis report for test_VGA
-Sat Dec 05 10:18:17 2020
+Analysis & Elaboration report for test_VGA
+Mon Dec 14 13:57:20 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -7,30 +7,14 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis RAM Summary
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Registers Packed Into Inferred Megafunctions
- 13. Source assignments for buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_np71:auto_generated
- 14. Parameter Settings for User Entity Instance: Top-level Entity: |test_VGA
- 15. Parameter Settings for User Entity Instance: cl_25_24_quartus:clk25|altpll:altpll_component
- 16. Parameter Settings for User Entity Instance: buffer_ram_dp:DP_RAM
- 17. Parameter Settings for Inferred Entity Instance: buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0
- 18. altpll Parameter Settings by Entity Instance
- 19. altsyncram Parameter Settings by Entity Instance
- 20. Port Connectivity Checks: "FSM_game:juego"
- 21. Port Connectivity Checks: "buffer_ram_dp:DP_RAM"
- 22. Port Connectivity Checks: "cl_25_24_quartus:clk25"
- 23. Post-Synthesis Netlist Statistics for Top Partition
- 24. Elapsed Time Per Partition
- 25. Analysis & Synthesis Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Parameter Settings for User Entity Instance: Top-level Entity: |test_VGA
+  5. Parameter Settings for User Entity Instance: buffer_ram_dp:DP_RAM
+  6. Parameter Settings for User Entity Instance: FSM_game:juego
+  7. Analysis & Elaboration Settings
+  8. Port Connectivity Checks: "buffer_ram_dp:DP_RAM"
+  9. Analysis & Elaboration Messages
 
 
 
@@ -55,27 +39,77 @@ https://fpgasoftware.intel.com/eula.
 
 
 +----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                     ;
+; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Dec 05 10:18:17 2020       ;
+; Analysis & Elaboration Status      ; Successful - Mon Dec 14 13:57:19 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; test_VGA                                    ;
 ; Top-level Entity Name              ; test_VGA                                    ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 1                                           ;
-;     Total combinational functions  ; 1                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 10                                          ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 6                                           ;
-; Embedded Multiplier 9-bit elements ; 0                                           ;
-; Total PLLs                         ; 1                                           ;
+; Total logic elements               ; N/A until Partition Merge                   ;
+;     Total combinational functions  ; N/A until Partition Merge                   ;
+;     Dedicated logic registers      ; N/A until Partition Merge                   ;
+; Total registers                    ; N/A until Partition Merge                   ;
+; Total pins                         ; N/A until Partition Merge                   ;
+; Total virtual pins                 ; N/A until Partition Merge                   ;
+; Total memory bits                  ; N/A until Partition Merge                   ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
+; Total PLLs                         ; N/A until Partition Merge                   ;
 +------------------------------------+---------------------------------------------+
 
 
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |test_VGA ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; CAM_SCREEN_X   ; 640   ; Signed Integer                                  ;
+; CAM_SCREEN_Y   ; 480   ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: buffer_ram_dp:DP_RAM                                  ;
++----------------+------------------------------------------------------------------+----------------+
+; Parameter Name ; Value                                                            ; Type           ;
++----------------+------------------------------------------------------------------+----------------+
+; AW             ; 19                                                               ; Signed Integer ;
+; DW             ; 12                                                               ; Signed Integer ;
+; imageFILE      ; /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/image.men ; String         ;
++----------------+------------------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FSM_game:juego ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; AW             ; 19    ; Signed Integer                     ;
+; DW             ; 12    ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                              ;
+; Analysis & Elaboration Settings                                                                            ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
@@ -164,677 +198,6 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                       ;
-+-------------------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                                                           ; Library ;
-+-------------------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+---------+
-; scr/cl_25_24_quartus.v                          ; yes             ; User Wizard-Generated File                            ; C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/cl_25_24_quartus.v                          ;         ;
-; scr/FSM_game.v                                  ; yes             ; User Verilog HDL File                                 ; C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v                                  ;         ;
-; scr/VGA_driver.v                                ; yes             ; User Verilog HDL File                                 ; C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v                                ;         ;
-; scr/test_VGA.v                                  ; yes             ; User Verilog HDL File                                 ; C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v                                  ;         ;
-; scr/buffer_ram_dp.v                             ; yes             ; User Verilog HDL File                                 ; C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/buffer_ram_dp.v                             ;         ;
-; altpll.tdf                                      ; yes             ; Megafunction                                          ; c:/intelfpga/20.1/quartus/libraries/megafunctions/altpll.tdf                                                                           ;         ;
-; aglobal201.inc                                  ; yes             ; Megafunction                                          ; c:/intelfpga/20.1/quartus/libraries/megafunctions/aglobal201.inc                                                                       ;         ;
-; stratix_pll.inc                                 ; yes             ; Megafunction                                          ; c:/intelfpga/20.1/quartus/libraries/megafunctions/stratix_pll.inc                                                                      ;         ;
-; stratixii_pll.inc                               ; yes             ; Megafunction                                          ; c:/intelfpga/20.1/quartus/libraries/megafunctions/stratixii_pll.inc                                                                    ;         ;
-; cycloneii_pll.inc                               ; yes             ; Megafunction                                          ; c:/intelfpga/20.1/quartus/libraries/megafunctions/cycloneii_pll.inc                                                                    ;         ;
-; db/cl_25_24_quartus_altpll.v                    ; yes             ; Auto-Generated Megafunction                           ; C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/cl_25_24_quartus_altpll.v                    ;         ;
-; altsyncram.tdf                                  ; yes             ; Megafunction                                          ; c:/intelfpga/20.1/quartus/libraries/megafunctions/altsyncram.tdf                                                                       ;         ;
-; stratix_ram_block.inc                           ; yes             ; Megafunction                                          ; c:/intelfpga/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                                                ;         ;
-; lpm_mux.inc                                     ; yes             ; Megafunction                                          ; c:/intelfpga/20.1/quartus/libraries/megafunctions/lpm_mux.inc                                                                          ;         ;
-; lpm_decode.inc                                  ; yes             ; Megafunction                                          ; c:/intelfpga/20.1/quartus/libraries/megafunctions/lpm_decode.inc                                                                       ;         ;
-; a_rdenreg.inc                                   ; yes             ; Megafunction                                          ; c:/intelfpga/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                                        ;         ;
-; altrom.inc                                      ; yes             ; Megafunction                                          ; c:/intelfpga/20.1/quartus/libraries/megafunctions/altrom.inc                                                                           ;         ;
-; altram.inc                                      ; yes             ; Megafunction                                          ; c:/intelfpga/20.1/quartus/libraries/megafunctions/altram.inc                                                                           ;         ;
-; altdpram.inc                                    ; yes             ; Megafunction                                          ; c:/intelfpga/20.1/quartus/libraries/megafunctions/altdpram.inc                                                                         ;         ;
-; db/altsyncram_np71.tdf                          ; yes             ; Auto-Generated Megafunction                           ; C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/altsyncram_np71.tdf                          ;         ;
-; db/test_vga.ram0_buffer_ram_dp_8473bf0d.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/test_vga.ram0_buffer_ram_dp_8473bf0d.hdl.mif ;         ;
-; db/decode_f8a.tdf                               ; yes             ; Auto-Generated Megafunction                           ; C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/decode_f8a.tdf                               ;         ;
-; db/mux_1nb.tdf                                  ; yes             ; Auto-Generated Megafunction                           ; C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/mux_1nb.tdf                                  ;         ;
-+-------------------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+---------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                                                                          ;
-+---------------------------------------------+--------------------------------------------------------------------------------------------------------+
-; Resource                                    ; Usage                                                                                                  ;
-+---------------------------------------------+--------------------------------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 1                                                                                                      ;
-;                                             ;                                                                                                        ;
-; Total combinational functions               ; 1                                                                                                      ;
-; Logic element usage by number of LUT inputs ;                                                                                                        ;
-;     -- 4 input functions                    ; 0                                                                                                      ;
-;     -- 3 input functions                    ; 0                                                                                                      ;
-;     -- <=2 input functions                  ; 1                                                                                                      ;
-;                                             ;                                                                                                        ;
-; Logic elements by mode                      ;                                                                                                        ;
-;     -- normal mode                          ; 1                                                                                                      ;
-;     -- arithmetic mode                      ; 0                                                                                                      ;
-;                                             ;                                                                                                        ;
-; Total registers                             ; 0                                                                                                      ;
-;     -- Dedicated logic registers            ; 0                                                                                                      ;
-;     -- I/O registers                        ; 0                                                                                                      ;
-;                                             ;                                                                                                        ;
-; I/O pins                                    ; 10                                                                                                     ;
-; Total memory bits                           ; 6                                                                                                      ;
-;                                             ;                                                                                                        ;
-; Embedded Multiplier 9-bit elements          ; 0                                                                                                      ;
-;                                             ;                                                                                                        ;
-; Total PLLs                                  ; 1                                                                                                      ;
-;     -- PLLs                                 ; 1                                                                                                      ;
-;                                             ;                                                                                                        ;
-; Maximum fan-out node                        ; cl_25_24_quartus:clk25|altpll:altpll_component|cl_25_24_quartus_altpll:auto_generated|wire_pll1_clk[0] ;
-; Maximum fan-out                             ; 5                                                                                                      ;
-; Total fan-out                               ; 22                                                                                                     ;
-; Average fan-out                             ; 0.88                                                                                                   ;
-+---------------------------------------------+--------------------------------------------------------------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                     ;
-+---------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; Compilation Hierarchy Node                        ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                             ; Entity Name             ; Library Name ;
-+---------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; |test_VGA                                         ; 1 (1)               ; 0 (0)                     ; 6           ; 0            ; 0       ; 0         ; 10   ; 0            ; |test_VGA                                                                                       ; test_VGA                ; work         ;
-;    |buffer_ram_dp:DP_RAM|                         ; 0 (0)               ; 0 (0)                     ; 6           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|buffer_ram_dp:DP_RAM                                                                  ; buffer_ram_dp           ; work         ;
-;       |altsyncram:ram_rtl_0|                      ; 0 (0)               ; 0 (0)                     ; 6           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0                                             ; altsyncram              ; work         ;
-;          |altsyncram_np71:auto_generated|         ; 0 (0)               ; 0 (0)                     ; 6           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_np71:auto_generated              ; altsyncram_np71         ; work         ;
-;    |cl_25_24_quartus:clk25|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|cl_25_24_quartus:clk25                                                                ; cl_25_24_quartus        ; work         ;
-;       |altpll:altpll_component|                   ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|cl_25_24_quartus:clk25|altpll:altpll_component                                        ; altpll                  ; work         ;
-;          |cl_25_24_quartus_altpll:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|cl_25_24_quartus:clk25|altpll:altpll_component|cl_25_24_quartus_altpll:auto_generated ; cl_25_24_quartus_altpll ; work         ;
-+---------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+-------------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                                        ;
-+-------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+-------------------------------------------------+
-; Name                                                                                ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF                                             ;
-+-------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+-------------------------------------------------+
-; buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_np71:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 32768        ; 3            ; --           ; --           ; 98304 ; db/test_VGA.ram0_buffer_ram_dp_8473bf0d.hdl.mif ;
-+-------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+-------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                 ;
-+-------------------------------------------------------------------------------------------+----------------------------------------+
-; Register name                                                                             ; Reason for Removal                     ;
-+-------------------------------------------------------------------------------------------+----------------------------------------+
-; VGA_Driver640x480:VGA640x480|countY[0,1]                                                  ; Stuck at GND due to stuck port data_in ;
-; VGA_Driver640x480:VGA640x480|countY[2..7]                                                 ; Stuck at VCC due to stuck port data_in ;
-; VGA_Driver640x480:VGA640x480|countY[8]                                                    ; Stuck at GND due to stuck port data_in ;
-; VGA_Driver640x480:VGA640x480|countX[0..9]                                                 ; Lost fanout                            ;
-; buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_np71:auto_generated|address_reg_a[1] ; Stuck at VCC due to stuck port data_in ;
-; buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_np71:auto_generated|address_reg_a[0] ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 21                                                    ;                                        ;
-+-------------------------------------------------------------------------------------------+----------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                          ;
-+----------------------------------------+---------------------------+---------------------------------------------------------------------------------+
-; Register name                          ; Reason for Removal        ; Registers Removed due to This Register                                          ;
-+----------------------------------------+---------------------------+---------------------------------------------------------------------------------+
-; VGA_Driver640x480:VGA640x480|countY[0] ; Stuck at GND              ; VGA_Driver640x480:VGA640x480|countX[0], VGA_Driver640x480:VGA640x480|countX[1], ;
-;                                        ; due to stuck port data_in ; VGA_Driver640x480:VGA640x480|countX[2]                                          ;
-+----------------------------------------+---------------------------+---------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-----------------------------------------------------------------------------+
-; Registers Packed Into Inferred Megafunctions                                ;
-+-------------------------------------+--------------------------------+------+
-; Register Name                       ; Megafunction                   ; Type ;
-+-------------------------------------+--------------------------------+------+
-; buffer_ram_dp:DP_RAM|data_out[0..2] ; buffer_ram_dp:DP_RAM|ram_rtl_0 ; RAM  ;
-+-------------------------------------+--------------------------------+------+
-
-
-+-------------------------------------------------------------------------------------------------+
-; Source assignments for buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_np71:auto_generated ;
-+---------------------------------+--------------------+------+-----------------------------------+
-; Assignment                      ; Value              ; From ; To                                ;
-+---------------------------------+--------------------+------+-----------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                 ;
-+---------------------------------+--------------------+------+-----------------------------------+
-
-
-+--------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |test_VGA ;
-+----------------+-------+-------------------------------------------------+
-; Parameter Name ; Value ; Type                                            ;
-+----------------+-------+-------------------------------------------------+
-; CAM_SCREEN_X   ; 176   ; Signed Integer                                  ;
-; CAM_SCREEN_Y   ; 120   ; Signed Integer                                  ;
-+----------------+-------+-------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: cl_25_24_quartus:clk25|altpll:altpll_component ;
-+-------------------------------+------------------------------------+------------------------+
-; Parameter Name                ; Value                              ; Type                   ;
-+-------------------------------+------------------------------------+------------------------+
-; OPERATION_MODE                ; NORMAL                             ; Untyped                ;
-; PLL_TYPE                      ; AUTO                               ; Untyped                ;
-; LPM_HINT                      ; CBX_MODULE_PREFIX=cl_25_24_quartus ; Untyped                ;
-; QUALIFY_CONF_DONE             ; OFF                                ; Untyped                ;
-; COMPENSATE_CLOCK              ; CLK0                               ; Untyped                ;
-; SCAN_CHAIN                    ; LONG                               ; Untyped                ;
-; PRIMARY_CLOCK                 ; INCLK0                             ; Untyped                ;
-; INCLK0_INPUT_FREQUENCY        ; 83333                              ; Signed Integer         ;
-; INCLK1_INPUT_FREQUENCY        ; 0                                  ; Untyped                ;
-; GATE_LOCK_SIGNAL              ; NO                                 ; Untyped                ;
-; GATE_LOCK_COUNTER             ; 0                                  ; Untyped                ;
-; LOCK_HIGH                     ; 1                                  ; Untyped                ;
-; LOCK_LOW                      ; 1                                  ; Untyped                ;
-; VALID_LOCK_MULTIPLIER         ; 1                                  ; Untyped                ;
-; INVALID_LOCK_MULTIPLIER       ; 5                                  ; Untyped                ;
-; SWITCH_OVER_ON_LOSSCLK        ; OFF                                ; Untyped                ;
-; SWITCH_OVER_ON_GATED_LOCK     ; OFF                                ; Untyped                ;
-; ENABLE_SWITCH_OVER_COUNTER    ; OFF                                ; Untyped                ;
-; SKIP_VCO                      ; OFF                                ; Untyped                ;
-; SWITCH_OVER_COUNTER           ; 0                                  ; Untyped                ;
-; SWITCH_OVER_TYPE              ; AUTO                               ; Untyped                ;
-; FEEDBACK_SOURCE               ; EXTCLK0                            ; Untyped                ;
-; BANDWIDTH                     ; 0                                  ; Untyped                ;
-; BANDWIDTH_TYPE                ; AUTO                               ; Untyped                ;
-; SPREAD_FREQUENCY              ; 0                                  ; Untyped                ;
-; DOWN_SPREAD                   ; 0                                  ; Untyped                ;
-; SELF_RESET_ON_GATED_LOSS_LOCK ; OFF                                ; Untyped                ;
-; SELF_RESET_ON_LOSS_LOCK       ; OFF                                ; Untyped                ;
-; CLK9_MULTIPLY_BY              ; 0                                  ; Untyped                ;
-; CLK8_MULTIPLY_BY              ; 0                                  ; Untyped                ;
-; CLK7_MULTIPLY_BY              ; 0                                  ; Untyped                ;
-; CLK6_MULTIPLY_BY              ; 0                                  ; Untyped                ;
-; CLK5_MULTIPLY_BY              ; 1                                  ; Untyped                ;
-; CLK4_MULTIPLY_BY              ; 1                                  ; Untyped                ;
-; CLK3_MULTIPLY_BY              ; 1                                  ; Untyped                ;
-; CLK2_MULTIPLY_BY              ; 1                                  ; Untyped                ;
-; CLK1_MULTIPLY_BY              ; 1                                  ; Untyped                ;
-; CLK0_MULTIPLY_BY              ; 25                                 ; Signed Integer         ;
-; CLK9_DIVIDE_BY                ; 0                                  ; Untyped                ;
-; CLK8_DIVIDE_BY                ; 0                                  ; Untyped                ;
-; CLK7_DIVIDE_BY                ; 0                                  ; Untyped                ;
-; CLK6_DIVIDE_BY                ; 0                                  ; Untyped                ;
-; CLK5_DIVIDE_BY                ; 1                                  ; Untyped                ;
-; CLK4_DIVIDE_BY                ; 1                                  ; Untyped                ;
-; CLK3_DIVIDE_BY                ; 1                                  ; Untyped                ;
-; CLK2_DIVIDE_BY                ; 1                                  ; Untyped                ;
-; CLK1_DIVIDE_BY                ; 1                                  ; Untyped                ;
-; CLK0_DIVIDE_BY                ; 12                                 ; Signed Integer         ;
-; CLK9_PHASE_SHIFT              ; 0                                  ; Untyped                ;
-; CLK8_PHASE_SHIFT              ; 0                                  ; Untyped                ;
-; CLK7_PHASE_SHIFT              ; 0                                  ; Untyped                ;
-; CLK6_PHASE_SHIFT              ; 0                                  ; Untyped                ;
-; CLK5_PHASE_SHIFT              ; 0                                  ; Untyped                ;
-; CLK4_PHASE_SHIFT              ; 0                                  ; Untyped                ;
-; CLK3_PHASE_SHIFT              ; 0                                  ; Untyped                ;
-; CLK2_PHASE_SHIFT              ; 0                                  ; Untyped                ;
-; CLK1_PHASE_SHIFT              ; 0                                  ; Untyped                ;
-; CLK0_PHASE_SHIFT              ; 0                                  ; Untyped                ;
-; CLK5_TIME_DELAY               ; 0                                  ; Untyped                ;
-; CLK4_TIME_DELAY               ; 0                                  ; Untyped                ;
-; CLK3_TIME_DELAY               ; 0                                  ; Untyped                ;
-; CLK2_TIME_DELAY               ; 0                                  ; Untyped                ;
-; CLK1_TIME_DELAY               ; 0                                  ; Untyped                ;
-; CLK0_TIME_DELAY               ; 0                                  ; Untyped                ;
-; CLK9_DUTY_CYCLE               ; 50                                 ; Untyped                ;
-; CLK8_DUTY_CYCLE               ; 50                                 ; Untyped                ;
-; CLK7_DUTY_CYCLE               ; 50                                 ; Untyped                ;
-; CLK6_DUTY_CYCLE               ; 50                                 ; Untyped                ;
-; CLK5_DUTY_CYCLE               ; 50                                 ; Untyped                ;
-; CLK4_DUTY_CYCLE               ; 50                                 ; Untyped                ;
-; CLK3_DUTY_CYCLE               ; 50                                 ; Untyped                ;
-; CLK2_DUTY_CYCLE               ; 50                                 ; Untyped                ;
-; CLK1_DUTY_CYCLE               ; 50                                 ; Untyped                ;
-; CLK0_DUTY_CYCLE               ; 50                                 ; Signed Integer         ;
-; CLK9_USE_EVEN_COUNTER_MODE    ; OFF                                ; Untyped                ;
-; CLK8_USE_EVEN_COUNTER_MODE    ; OFF                                ; Untyped                ;
-; CLK7_USE_EVEN_COUNTER_MODE    ; OFF                                ; Untyped                ;
-; CLK6_USE_EVEN_COUNTER_MODE    ; OFF                                ; Untyped                ;
-; CLK5_USE_EVEN_COUNTER_MODE    ; OFF                                ; Untyped                ;
-; CLK4_USE_EVEN_COUNTER_MODE    ; OFF                                ; Untyped                ;
-; CLK3_USE_EVEN_COUNTER_MODE    ; OFF                                ; Untyped                ;
-; CLK2_USE_EVEN_COUNTER_MODE    ; OFF                                ; Untyped                ;
-; CLK1_USE_EVEN_COUNTER_MODE    ; OFF                                ; Untyped                ;
-; CLK0_USE_EVEN_COUNTER_MODE    ; OFF                                ; Untyped                ;
-; CLK9_USE_EVEN_COUNTER_VALUE   ; OFF                                ; Untyped                ;
-; CLK8_USE_EVEN_COUNTER_VALUE   ; OFF                                ; Untyped                ;
-; CLK7_USE_EVEN_COUNTER_VALUE   ; OFF                                ; Untyped                ;
-; CLK6_USE_EVEN_COUNTER_VALUE   ; OFF                                ; Untyped                ;
-; CLK5_USE_EVEN_COUNTER_VALUE   ; OFF                                ; Untyped                ;
-; CLK4_USE_EVEN_COUNTER_VALUE   ; OFF                                ; Untyped                ;
-; CLK3_USE_EVEN_COUNTER_VALUE   ; OFF                                ; Untyped                ;
-; CLK2_USE_EVEN_COUNTER_VALUE   ; OFF                                ; Untyped                ;
-; CLK1_USE_EVEN_COUNTER_VALUE   ; OFF                                ; Untyped                ;
-; CLK0_USE_EVEN_COUNTER_VALUE   ; OFF                                ; Untyped                ;
-; LOCK_WINDOW_UI                ;  0.05                              ; Untyped                ;
-; LOCK_WINDOW_UI_BITS           ; UNUSED                             ; Untyped                ;
-; VCO_RANGE_DETECTOR_LOW_BITS   ; UNUSED                             ; Untyped                ;
-; VCO_RANGE_DETECTOR_HIGH_BITS  ; UNUSED                             ; Untyped                ;
-; DPA_MULTIPLY_BY               ; 0                                  ; Untyped                ;
-; DPA_DIVIDE_BY                 ; 1                                  ; Untyped                ;
-; DPA_DIVIDER                   ; 0                                  ; Untyped                ;
-; EXTCLK3_MULTIPLY_BY           ; 1                                  ; Untyped                ;
-; EXTCLK2_MULTIPLY_BY           ; 1                                  ; Untyped                ;
-; EXTCLK1_MULTIPLY_BY           ; 1                                  ; Untyped                ;
-; EXTCLK0_MULTIPLY_BY           ; 1                                  ; Untyped                ;
-; EXTCLK3_DIVIDE_BY             ; 1                                  ; Untyped                ;
-; EXTCLK2_DIVIDE_BY             ; 1                                  ; Untyped                ;
-; EXTCLK1_DIVIDE_BY             ; 1                                  ; Untyped                ;
-; EXTCLK0_DIVIDE_BY             ; 1                                  ; Untyped                ;
-; EXTCLK3_PHASE_SHIFT           ; 0                                  ; Untyped                ;
-; EXTCLK2_PHASE_SHIFT           ; 0                                  ; Untyped                ;
-; EXTCLK1_PHASE_SHIFT           ; 0                                  ; Untyped                ;
-; EXTCLK0_PHASE_SHIFT           ; 0                                  ; Untyped                ;
-; EXTCLK3_TIME_DELAY            ; 0                                  ; Untyped                ;
-; EXTCLK2_TIME_DELAY            ; 0                                  ; Untyped                ;
-; EXTCLK1_TIME_DELAY            ; 0                                  ; Untyped                ;
-; EXTCLK0_TIME_DELAY            ; 0                                  ; Untyped                ;
-; EXTCLK3_DUTY_CYCLE            ; 50                                 ; Untyped                ;
-; EXTCLK2_DUTY_CYCLE            ; 50                                 ; Untyped                ;
-; EXTCLK1_DUTY_CYCLE            ; 50                                 ; Untyped                ;
-; EXTCLK0_DUTY_CYCLE            ; 50                                 ; Untyped                ;
-; VCO_MULTIPLY_BY               ; 0                                  ; Untyped                ;
-; VCO_DIVIDE_BY                 ; 0                                  ; Untyped                ;
-; SCLKOUT0_PHASE_SHIFT          ; 0                                  ; Untyped                ;
-; SCLKOUT1_PHASE_SHIFT          ; 0                                  ; Untyped                ;
-; VCO_MIN                       ; 0                                  ; Untyped                ;
-; VCO_MAX                       ; 0                                  ; Untyped                ;
-; VCO_CENTER                    ; 0                                  ; Untyped                ;
-; PFD_MIN                       ; 0                                  ; Untyped                ;
-; PFD_MAX                       ; 0                                  ; Untyped                ;
-; M_INITIAL                     ; 0                                  ; Untyped                ;
-; M                             ; 0                                  ; Untyped                ;
-; N                             ; 1                                  ; Untyped                ;
-; M2                            ; 1                                  ; Untyped                ;
-; N2                            ; 1                                  ; Untyped                ;
-; SS                            ; 1                                  ; Untyped                ;
-; C0_HIGH                       ; 0                                  ; Untyped                ;
-; C1_HIGH                       ; 0                                  ; Untyped                ;
-; C2_HIGH                       ; 0                                  ; Untyped                ;
-; C3_HIGH                       ; 0                                  ; Untyped                ;
-; C4_HIGH                       ; 0                                  ; Untyped                ;
-; C5_HIGH                       ; 0                                  ; Untyped                ;
-; C6_HIGH                       ; 0                                  ; Untyped                ;
-; C7_HIGH                       ; 0                                  ; Untyped                ;
-; C8_HIGH                       ; 0                                  ; Untyped                ;
-; C9_HIGH                       ; 0                                  ; Untyped                ;
-; C0_LOW                        ; 0                                  ; Untyped                ;
-; C1_LOW                        ; 0                                  ; Untyped                ;
-; C2_LOW                        ; 0                                  ; Untyped                ;
-; C3_LOW                        ; 0                                  ; Untyped                ;
-; C4_LOW                        ; 0                                  ; Untyped                ;
-; C5_LOW                        ; 0                                  ; Untyped                ;
-; C6_LOW                        ; 0                                  ; Untyped                ;
-; C7_LOW                        ; 0                                  ; Untyped                ;
-; C8_LOW                        ; 0                                  ; Untyped                ;
-; C9_LOW                        ; 0                                  ; Untyped                ;
-; C0_INITIAL                    ; 0                                  ; Untyped                ;
-; C1_INITIAL                    ; 0                                  ; Untyped                ;
-; C2_INITIAL                    ; 0                                  ; Untyped                ;
-; C3_INITIAL                    ; 0                                  ; Untyped                ;
-; C4_INITIAL                    ; 0                                  ; Untyped                ;
-; C5_INITIAL                    ; 0                                  ; Untyped                ;
-; C6_INITIAL                    ; 0                                  ; Untyped                ;
-; C7_INITIAL                    ; 0                                  ; Untyped                ;
-; C8_INITIAL                    ; 0                                  ; Untyped                ;
-; C9_INITIAL                    ; 0                                  ; Untyped                ;
-; C0_MODE                       ; BYPASS                             ; Untyped                ;
-; C1_MODE                       ; BYPASS                             ; Untyped                ;
-; C2_MODE                       ; BYPASS                             ; Untyped                ;
-; C3_MODE                       ; BYPASS                             ; Untyped                ;
-; C4_MODE                       ; BYPASS                             ; Untyped                ;
-; C5_MODE                       ; BYPASS                             ; Untyped                ;
-; C6_MODE                       ; BYPASS                             ; Untyped                ;
-; C7_MODE                       ; BYPASS                             ; Untyped                ;
-; C8_MODE                       ; BYPASS                             ; Untyped                ;
-; C9_MODE                       ; BYPASS                             ; Untyped                ;
-; C0_PH                         ; 0                                  ; Untyped                ;
-; C1_PH                         ; 0                                  ; Untyped                ;
-; C2_PH                         ; 0                                  ; Untyped                ;
-; C3_PH                         ; 0                                  ; Untyped                ;
-; C4_PH                         ; 0                                  ; Untyped                ;
-; C5_PH                         ; 0                                  ; Untyped                ;
-; C6_PH                         ; 0                                  ; Untyped                ;
-; C7_PH                         ; 0                                  ; Untyped                ;
-; C8_PH                         ; 0                                  ; Untyped                ;
-; C9_PH                         ; 0                                  ; Untyped                ;
-; L0_HIGH                       ; 1                                  ; Untyped                ;
-; L1_HIGH                       ; 1                                  ; Untyped                ;
-; G0_HIGH                       ; 1                                  ; Untyped                ;
-; G1_HIGH                       ; 1                                  ; Untyped                ;
-; G2_HIGH                       ; 1                                  ; Untyped                ;
-; G3_HIGH                       ; 1                                  ; Untyped                ;
-; E0_HIGH                       ; 1                                  ; Untyped                ;
-; E1_HIGH                       ; 1                                  ; Untyped                ;
-; E2_HIGH                       ; 1                                  ; Untyped                ;
-; E3_HIGH                       ; 1                                  ; Untyped                ;
-; L0_LOW                        ; 1                                  ; Untyped                ;
-; L1_LOW                        ; 1                                  ; Untyped                ;
-; G0_LOW                        ; 1                                  ; Untyped                ;
-; G1_LOW                        ; 1                                  ; Untyped                ;
-; G2_LOW                        ; 1                                  ; Untyped                ;
-; G3_LOW                        ; 1                                  ; Untyped                ;
-; E0_LOW                        ; 1                                  ; Untyped                ;
-; E1_LOW                        ; 1                                  ; Untyped                ;
-; E2_LOW                        ; 1                                  ; Untyped                ;
-; E3_LOW                        ; 1                                  ; Untyped                ;
-; L0_INITIAL                    ; 1                                  ; Untyped                ;
-; L1_INITIAL                    ; 1                                  ; Untyped                ;
-; G0_INITIAL                    ; 1                                  ; Untyped                ;
-; G1_INITIAL                    ; 1                                  ; Untyped                ;
-; G2_INITIAL                    ; 1                                  ; Untyped                ;
-; G3_INITIAL                    ; 1                                  ; Untyped                ;
-; E0_INITIAL                    ; 1                                  ; Untyped                ;
-; E1_INITIAL                    ; 1                                  ; Untyped                ;
-; E2_INITIAL                    ; 1                                  ; Untyped                ;
-; E3_INITIAL                    ; 1                                  ; Untyped                ;
-; L0_MODE                       ; BYPASS                             ; Untyped                ;
-; L1_MODE                       ; BYPASS                             ; Untyped                ;
-; G0_MODE                       ; BYPASS                             ; Untyped                ;
-; G1_MODE                       ; BYPASS                             ; Untyped                ;
-; G2_MODE                       ; BYPASS                             ; Untyped                ;
-; G3_MODE                       ; BYPASS                             ; Untyped                ;
-; E0_MODE                       ; BYPASS                             ; Untyped                ;
-; E1_MODE                       ; BYPASS                             ; Untyped                ;
-; E2_MODE                       ; BYPASS                             ; Untyped                ;
-; E3_MODE                       ; BYPASS                             ; Untyped                ;
-; L0_PH                         ; 0                                  ; Untyped                ;
-; L1_PH                         ; 0                                  ; Untyped                ;
-; G0_PH                         ; 0                                  ; Untyped                ;
-; G1_PH                         ; 0                                  ; Untyped                ;
-; G2_PH                         ; 0                                  ; Untyped                ;
-; G3_PH                         ; 0                                  ; Untyped                ;
-; E0_PH                         ; 0                                  ; Untyped                ;
-; E1_PH                         ; 0                                  ; Untyped                ;
-; E2_PH                         ; 0                                  ; Untyped                ;
-; E3_PH                         ; 0                                  ; Untyped                ;
-; M_PH                          ; 0                                  ; Untyped                ;
-; C1_USE_CASC_IN                ; OFF                                ; Untyped                ;
-; C2_USE_CASC_IN                ; OFF                                ; Untyped                ;
-; C3_USE_CASC_IN                ; OFF                                ; Untyped                ;
-; C4_USE_CASC_IN                ; OFF                                ; Untyped                ;
-; C5_USE_CASC_IN                ; OFF                                ; Untyped                ;
-; C6_USE_CASC_IN                ; OFF                                ; Untyped                ;
-; C7_USE_CASC_IN                ; OFF                                ; Untyped                ;
-; C8_USE_CASC_IN                ; OFF                                ; Untyped                ;
-; C9_USE_CASC_IN                ; OFF                                ; Untyped                ;
-; CLK0_COUNTER                  ; G0                                 ; Untyped                ;
-; CLK1_COUNTER                  ; G0                                 ; Untyped                ;
-; CLK2_COUNTER                  ; G0                                 ; Untyped                ;
-; CLK3_COUNTER                  ; G0                                 ; Untyped                ;
-; CLK4_COUNTER                  ; G0                                 ; Untyped                ;
-; CLK5_COUNTER                  ; G0                                 ; Untyped                ;
-; CLK6_COUNTER                  ; E0                                 ; Untyped                ;
-; CLK7_COUNTER                  ; E1                                 ; Untyped                ;
-; CLK8_COUNTER                  ; E2                                 ; Untyped                ;
-; CLK9_COUNTER                  ; E3                                 ; Untyped                ;
-; L0_TIME_DELAY                 ; 0                                  ; Untyped                ;
-; L1_TIME_DELAY                 ; 0                                  ; Untyped                ;
-; G0_TIME_DELAY                 ; 0                                  ; Untyped                ;
-; G1_TIME_DELAY                 ; 0                                  ; Untyped                ;
-; G2_TIME_DELAY                 ; 0                                  ; Untyped                ;
-; G3_TIME_DELAY                 ; 0                                  ; Untyped                ;
-; E0_TIME_DELAY                 ; 0                                  ; Untyped                ;
-; E1_TIME_DELAY                 ; 0                                  ; Untyped                ;
-; E2_TIME_DELAY                 ; 0                                  ; Untyped                ;
-; E3_TIME_DELAY                 ; 0                                  ; Untyped                ;
-; M_TIME_DELAY                  ; 0                                  ; Untyped                ;
-; N_TIME_DELAY                  ; 0                                  ; Untyped                ;
-; EXTCLK3_COUNTER               ; E3                                 ; Untyped                ;
-; EXTCLK2_COUNTER               ; E2                                 ; Untyped                ;
-; EXTCLK1_COUNTER               ; E1                                 ; Untyped                ;
-; EXTCLK0_COUNTER               ; E0                                 ; Untyped                ;
-; ENABLE0_COUNTER               ; L0                                 ; Untyped                ;
-; ENABLE1_COUNTER               ; L0                                 ; Untyped                ;
-; CHARGE_PUMP_CURRENT           ; 2                                  ; Untyped                ;
-; LOOP_FILTER_R                 ;  1.000000                          ; Untyped                ;
-; LOOP_FILTER_C                 ; 5                                  ; Untyped                ;
-; CHARGE_PUMP_CURRENT_BITS      ; 9999                               ; Untyped                ;
-; LOOP_FILTER_R_BITS            ; 9999                               ; Untyped                ;
-; LOOP_FILTER_C_BITS            ; 9999                               ; Untyped                ;
-; VCO_POST_SCALE                ; 0                                  ; Untyped                ;
-; CLK2_OUTPUT_FREQUENCY         ; 0                                  ; Untyped                ;
-; CLK1_OUTPUT_FREQUENCY         ; 0                                  ; Untyped                ;
-; CLK0_OUTPUT_FREQUENCY         ; 0                                  ; Untyped                ;
-; INTENDED_DEVICE_FAMILY        ; Cyclone IV E                       ; Untyped                ;
-; PORT_CLKENA0                  ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLKENA1                  ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLKENA2                  ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLKENA3                  ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLKENA4                  ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLKENA5                  ; PORT_UNUSED                        ; Untyped                ;
-; PORT_EXTCLKENA0               ; PORT_CONNECTIVITY                  ; Untyped                ;
-; PORT_EXTCLKENA1               ; PORT_CONNECTIVITY                  ; Untyped                ;
-; PORT_EXTCLKENA2               ; PORT_CONNECTIVITY                  ; Untyped                ;
-; PORT_EXTCLKENA3               ; PORT_CONNECTIVITY                  ; Untyped                ;
-; PORT_EXTCLK0                  ; PORT_UNUSED                        ; Untyped                ;
-; PORT_EXTCLK1                  ; PORT_UNUSED                        ; Untyped                ;
-; PORT_EXTCLK2                  ; PORT_UNUSED                        ; Untyped                ;
-; PORT_EXTCLK3                  ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLKBAD0                  ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLKBAD1                  ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLK0                     ; PORT_USED                          ; Untyped                ;
-; PORT_CLK1                     ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLK2                     ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLK3                     ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLK4                     ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLK5                     ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLK6                     ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLK7                     ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLK8                     ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLK9                     ; PORT_UNUSED                        ; Untyped                ;
-; PORT_SCANDATA                 ; PORT_UNUSED                        ; Untyped                ;
-; PORT_SCANDATAOUT              ; PORT_UNUSED                        ; Untyped                ;
-; PORT_SCANDONE                 ; PORT_UNUSED                        ; Untyped                ;
-; PORT_SCLKOUT1                 ; PORT_CONNECTIVITY                  ; Untyped                ;
-; PORT_SCLKOUT0                 ; PORT_CONNECTIVITY                  ; Untyped                ;
-; PORT_ACTIVECLOCK              ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLKLOSS                  ; PORT_UNUSED                        ; Untyped                ;
-; PORT_INCLK1                   ; PORT_UNUSED                        ; Untyped                ;
-; PORT_INCLK0                   ; PORT_USED                          ; Untyped                ;
-; PORT_FBIN                     ; PORT_UNUSED                        ; Untyped                ;
-; PORT_PLLENA                   ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CLKSWITCH                ; PORT_UNUSED                        ; Untyped                ;
-; PORT_ARESET                   ; PORT_USED                          ; Untyped                ;
-; PORT_PFDENA                   ; PORT_UNUSED                        ; Untyped                ;
-; PORT_SCANCLK                  ; PORT_UNUSED                        ; Untyped                ;
-; PORT_SCANACLR                 ; PORT_UNUSED                        ; Untyped                ;
-; PORT_SCANREAD                 ; PORT_UNUSED                        ; Untyped                ;
-; PORT_SCANWRITE                ; PORT_UNUSED                        ; Untyped                ;
-; PORT_ENABLE0                  ; PORT_CONNECTIVITY                  ; Untyped                ;
-; PORT_ENABLE1                  ; PORT_CONNECTIVITY                  ; Untyped                ;
-; PORT_LOCKED                   ; PORT_UNUSED                        ; Untyped                ;
-; PORT_CONFIGUPDATE             ; PORT_UNUSED                        ; Untyped                ;
-; PORT_FBOUT                    ; PORT_CONNECTIVITY                  ; Untyped                ;
-; PORT_PHASEDONE                ; PORT_UNUSED                        ; Untyped                ;
-; PORT_PHASESTEP                ; PORT_UNUSED                        ; Untyped                ;
-; PORT_PHASEUPDOWN              ; PORT_UNUSED                        ; Untyped                ;
-; PORT_SCANCLKENA               ; PORT_UNUSED                        ; Untyped                ;
-; PORT_PHASECOUNTERSELECT       ; PORT_UNUSED                        ; Untyped                ;
-; PORT_VCOOVERRANGE             ; PORT_CONNECTIVITY                  ; Untyped                ;
-; PORT_VCOUNDERRANGE            ; PORT_CONNECTIVITY                  ; Untyped                ;
-; M_TEST_SOURCE                 ; 5                                  ; Untyped                ;
-; C0_TEST_SOURCE                ; 5                                  ; Untyped                ;
-; C1_TEST_SOURCE                ; 5                                  ; Untyped                ;
-; C2_TEST_SOURCE                ; 5                                  ; Untyped                ;
-; C3_TEST_SOURCE                ; 5                                  ; Untyped                ;
-; C4_TEST_SOURCE                ; 5                                  ; Untyped                ;
-; C5_TEST_SOURCE                ; 5                                  ; Untyped                ;
-; C6_TEST_SOURCE                ; 5                                  ; Untyped                ;
-; C7_TEST_SOURCE                ; 5                                  ; Untyped                ;
-; C8_TEST_SOURCE                ; 5                                  ; Untyped                ;
-; C9_TEST_SOURCE                ; 5                                  ; Untyped                ;
-; CBXI_PARAMETER                ; cl_25_24_quartus_altpll            ; Untyped                ;
-; VCO_FREQUENCY_CONTROL         ; AUTO                               ; Untyped                ;
-; VCO_PHASE_SHIFT_STEP          ; 0                                  ; Untyped                ;
-; WIDTH_CLOCK                   ; 5                                  ; Signed Integer         ;
-; WIDTH_PHASECOUNTERSELECT      ; 4                                  ; Untyped                ;
-; USING_FBMIMICBIDIR_PORT       ; OFF                                ; Untyped                ;
-; DEVICE_FAMILY                 ; Cyclone IV E                       ; Untyped                ;
-; SCAN_CHAIN_MIF_FILE           ; UNUSED                             ; Untyped                ;
-; SIM_GATE_LOCK_DEVICE_BEHAVIOR ; OFF                                ; Untyped                ;
-; AUTO_CARRY_CHAINS             ; ON                                 ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS          ; OFF                                ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS           ; ON                                 ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS        ; OFF                                ; IGNORE_CASCADE         ;
-+-------------------------------+------------------------------------+------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: buffer_ram_dp:DP_RAM                                                                      ;
-+----------------+------------------------------------------------------------------------------------------------------+----------------+
-; Parameter Name ; Value                                                                                                ; Type           ;
-+----------------+------------------------------------------------------------------------------------------------------+----------------+
-; AW             ; 15                                                                                                   ; Signed Integer ;
-; DW             ; 3                                                                                                    ; Signed Integer ;
-; imageFILE      ; C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/image.men ; String         ;
-+----------------+------------------------------------------------------------------------------------------------------+----------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0            ;
-+------------------------------------+-------------------------------------------------+----------------+
-; Parameter Name                     ; Value                                           ; Type           ;
-+------------------------------------+-------------------------------------------------+----------------+
-; BYTE_SIZE_BLOCK                    ; 8                                               ; Untyped        ;
-; AUTO_CARRY_CHAINS                  ; ON                                              ; AUTO_CARRY     ;
-; IGNORE_CARRY_BUFFERS               ; OFF                                             ; IGNORE_CARRY   ;
-; AUTO_CASCADE_CHAINS                ; ON                                              ; AUTO_CASCADE   ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                                             ; IGNORE_CASCADE ;
-; WIDTH_BYTEENA                      ; 1                                               ; Untyped        ;
-; OPERATION_MODE                     ; ROM                                             ; Untyped        ;
-; WIDTH_A                            ; 3                                               ; Untyped        ;
-; WIDTHAD_A                          ; 15                                              ; Untyped        ;
-; NUMWORDS_A                         ; 32768                                           ; Untyped        ;
-; OUTDATA_REG_A                      ; UNREGISTERED                                    ; Untyped        ;
-; ADDRESS_ACLR_A                     ; NONE                                            ; Untyped        ;
-; OUTDATA_ACLR_A                     ; NONE                                            ; Untyped        ;
-; WRCONTROL_ACLR_A                   ; NONE                                            ; Untyped        ;
-; INDATA_ACLR_A                      ; NONE                                            ; Untyped        ;
-; BYTEENA_ACLR_A                     ; NONE                                            ; Untyped        ;
-; WIDTH_B                            ; 1                                               ; Untyped        ;
-; WIDTHAD_B                          ; 1                                               ; Untyped        ;
-; NUMWORDS_B                         ; 1                                               ; Untyped        ;
-; INDATA_REG_B                       ; CLOCK1                                          ; Untyped        ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                          ; Untyped        ;
-; RDCONTROL_REG_B                    ; CLOCK1                                          ; Untyped        ;
-; ADDRESS_REG_B                      ; CLOCK1                                          ; Untyped        ;
-; OUTDATA_REG_B                      ; UNREGISTERED                                    ; Untyped        ;
-; BYTEENA_REG_B                      ; CLOCK1                                          ; Untyped        ;
-; INDATA_ACLR_B                      ; NONE                                            ; Untyped        ;
-; WRCONTROL_ACLR_B                   ; NONE                                            ; Untyped        ;
-; ADDRESS_ACLR_B                     ; NONE                                            ; Untyped        ;
-; OUTDATA_ACLR_B                     ; NONE                                            ; Untyped        ;
-; RDCONTROL_ACLR_B                   ; NONE                                            ; Untyped        ;
-; BYTEENA_ACLR_B                     ; NONE                                            ; Untyped        ;
-; WIDTH_BYTEENA_A                    ; 1                                               ; Untyped        ;
-; WIDTH_BYTEENA_B                    ; 1                                               ; Untyped        ;
-; RAM_BLOCK_TYPE                     ; AUTO                                            ; Untyped        ;
-; BYTE_SIZE                          ; 8                                               ; Untyped        ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                       ; Untyped        ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                            ; Untyped        ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                            ; Untyped        ;
-; INIT_FILE                          ; db/test_VGA.ram0_buffer_ram_dp_8473bf0d.hdl.mif ; Untyped        ;
-; INIT_FILE_LAYOUT                   ; PORT_A                                          ; Untyped        ;
-; MAXIMUM_DEPTH                      ; 0                                               ; Untyped        ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL                                          ; Untyped        ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL                                          ; Untyped        ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                          ; Untyped        ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                          ; Untyped        ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                 ; Untyped        ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                 ; Untyped        ;
-; ENABLE_ECC                         ; FALSE                                           ; Untyped        ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                           ; Untyped        ;
-; WIDTH_ECCSTATUS                    ; 3                                               ; Untyped        ;
-; DEVICE_FAMILY                      ; Cyclone IV E                                    ; Untyped        ;
-; CBXI_PARAMETER                     ; altsyncram_np71                                 ; Untyped        ;
-+------------------------------------+-------------------------------------------------+----------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------+
-; altpll Parameter Settings by Entity Instance                                   ;
-+-------------------------------+------------------------------------------------+
-; Name                          ; Value                                          ;
-+-------------------------------+------------------------------------------------+
-; Number of entity instances    ; 1                                              ;
-; Entity Instance               ; cl_25_24_quartus:clk25|altpll:altpll_component ;
-;     -- OPERATION_MODE         ; NORMAL                                         ;
-;     -- PLL_TYPE               ; AUTO                                           ;
-;     -- PRIMARY_CLOCK          ; INCLK0                                         ;
-;     -- INCLK0_INPUT_FREQUENCY ; 83333                                          ;
-;     -- INCLK1_INPUT_FREQUENCY ; 0                                              ;
-;     -- VCO_MULTIPLY_BY        ; 0                                              ;
-;     -- VCO_DIVIDE_BY          ; 0                                              ;
-+-------------------------------+------------------------------------------------+
-
-
-+---------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                      ;
-+-------------------------------------------+-------------------------------------------+
-; Name                                      ; Value                                     ;
-+-------------------------------------------+-------------------------------------------+
-; Number of entity instances                ; 1                                         ;
-; Entity Instance                           ; buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0 ;
-;     -- OPERATION_MODE                     ; ROM                                       ;
-;     -- WIDTH_A                            ; 3                                         ;
-;     -- NUMWORDS_A                         ; 32768                                     ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                              ;
-;     -- WIDTH_B                            ; 1                                         ;
-;     -- NUMWORDS_B                         ; 1                                         ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                    ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                              ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                      ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                 ;
-+-------------------------------------------+-------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "FSM_game:juego"                                                                                                                                                                ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                                                                                                                 ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; mem_px_addr ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (15 bits) it drives.  The 14 most-significant bit(s) in the port expression will be connected to GND. ;
-; mem_px_data ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (3 bits) it drives.  The 2 most-significant bit(s) in the port expression will be connected to GND.   ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "buffer_ram_dp:DP_RAM"                                                                                                                        ;
 +-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
@@ -844,245 +207,70 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "cl_25_24_quartus:clk25"                                                                                                                                                                 ;
-+------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port       ; Type  ; Severity ; Details                                                                                                                                                                            ;
-+------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; areset     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; areset[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
-+------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 10                          ;
-; cycloneiii_lcell_comb ; 2                           ;
-;     normal            ; 2                           ;
-;         0 data inputs ; 2                           ;
-; cycloneiii_pll        ; 1                           ;
-; cycloneiii_ram_block  ; 3                           ;
-;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:01     ;
-+----------------+--------------+
-
-
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Synthesis
+Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sat Dec 05 10:17:48 2020
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off test_VGA -c test_VGA
+    Info: Processing started: Mon Dec 14 13:56:48 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off test_VGA -c test_VGA --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file scr/cl_25_24_quartus.v
-    Info (12023): Found entity 1: cl_25_24_quartus File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/cl_25_24_quartus.v Line: 40
-Info (12021): Found 1 design units, including 1 entities, in source file scr/fsm_game.v
-    Info (12023): Found entity 1: FSM_game File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 4
-Info (12021): Found 1 design units, including 1 entities, in source file scr/vga_driver.v
-    Info (12023): Found entity 1: VGA_Driver640x480 File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file scr/test_vga.v
-    Info (12023): Found entity 1: test_VGA File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file scr/PLL/clk50to85M.v
+    Info (12023): Found entity 1: clk50to85M File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/PLL/clk50to85M.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file scr/FSM_game.v
+    Info (12023): Found entity 1: FSM_game File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file scr/VGA_driver.v
+    Info (12023): Found entity 1: VGA_Driver640x480 File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/VGA_driver.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file scr/test_VGA.v
+    Info (12023): Found entity 1: test_VGA File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/test_VGA.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file scr/buffer_ram_dp.v
-    Info (12023): Found entity 1: buffer_ram_dp File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/buffer_ram_dp.v Line: 3
-Warning (10236): Verilog HDL Implicit Net warning at test_VGA.v(146): created implicit net for "btnr" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 146
+    Info (12023): Found entity 1: buffer_ram_dp File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/buffer_ram_dp.v Line: 2
+Warning (10236): Verilog HDL Implicit Net warning at test_VGA.v(161): created implicit net for "btnra" File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/test_VGA.v Line: 161
+Warning (10236): Verilog HDL Implicit Net warning at test_VGA.v(162): created implicit net for "btnla" File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/test_VGA.v Line: 162
+Warning (10236): Verilog HDL Implicit Net warning at test_VGA.v(163): created implicit net for "btnrb" File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/test_VGA.v Line: 163
+Warning (10236): Verilog HDL Implicit Net warning at test_VGA.v(164): created implicit net for "btnlb" File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/test_VGA.v Line: 164
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(21): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 21
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(22): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 22
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(23): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 23
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(24): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 24
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(25): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 25
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(41): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 41
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(42): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 42
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(43): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 43
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(52): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 52
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(56): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 56
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(158): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 158
 Warning (12162): EDA synthesis tool is specified as "Custom", but Library Mapping File is not specified
 Warning (12163): EDA synthesis tool is specified as "Custom", but VCC is not specified
 Warning (12164): EDA synthesis tool is specified as "Custom", but GND is not specified
 Info (12127): Elaborating entity "test_VGA" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at test_VGA.v(133): truncated value with size 32 to match size of target (15) File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 133
-Info (12128): Elaborating entity "cl_25_24_quartus" for hierarchy "cl_25_24_quartus:clk25" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 80
-Info (12128): Elaborating entity "altpll" for hierarchy "cl_25_24_quartus:clk25|altpll:altpll_component" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/cl_25_24_quartus.v Line: 100
-Info (12130): Elaborated megafunction instantiation "cl_25_24_quartus:clk25|altpll:altpll_component" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/cl_25_24_quartus.v Line: 100
-Info (12133): Instantiated megafunction "cl_25_24_quartus:clk25|altpll:altpll_component" with the following parameter: File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/cl_25_24_quartus.v Line: 100
-    Info (12134): Parameter "bandwidth_type" = "AUTO"
-    Info (12134): Parameter "clk0_divide_by" = "12"
-    Info (12134): Parameter "clk0_duty_cycle" = "50"
-    Info (12134): Parameter "clk0_multiply_by" = "25"
-    Info (12134): Parameter "clk0_phase_shift" = "0"
-    Info (12134): Parameter "compensate_clock" = "CLK0"
-    Info (12134): Parameter "inclk0_input_frequency" = "83333"
-    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
-    Info (12134): Parameter "lpm_hint" = "CBX_MODULE_PREFIX=cl_25_24_quartus"
-    Info (12134): Parameter "lpm_type" = "altpll"
-    Info (12134): Parameter "operation_mode" = "NORMAL"
-    Info (12134): Parameter "pll_type" = "AUTO"
-    Info (12134): Parameter "port_activeclock" = "PORT_UNUSED"
-    Info (12134): Parameter "port_areset" = "PORT_USED"
-    Info (12134): Parameter "port_clkbad0" = "PORT_UNUSED"
-    Info (12134): Parameter "port_clkbad1" = "PORT_UNUSED"
-    Info (12134): Parameter "port_clkloss" = "PORT_UNUSED"
-    Info (12134): Parameter "port_clkswitch" = "PORT_UNUSED"
-    Info (12134): Parameter "port_configupdate" = "PORT_UNUSED"
-    Info (12134): Parameter "port_fbin" = "PORT_UNUSED"
-    Info (12134): Parameter "port_inclk0" = "PORT_USED"
-    Info (12134): Parameter "port_inclk1" = "PORT_UNUSED"
-    Info (12134): Parameter "port_locked" = "PORT_UNUSED"
-    Info (12134): Parameter "port_pfdena" = "PORT_UNUSED"
-    Info (12134): Parameter "port_phasecounterselect" = "PORT_UNUSED"
-    Info (12134): Parameter "port_phasedone" = "PORT_UNUSED"
-    Info (12134): Parameter "port_phasestep" = "PORT_UNUSED"
-    Info (12134): Parameter "port_phaseupdown" = "PORT_UNUSED"
-    Info (12134): Parameter "port_pllena" = "PORT_UNUSED"
-    Info (12134): Parameter "port_scanaclr" = "PORT_UNUSED"
-    Info (12134): Parameter "port_scanclk" = "PORT_UNUSED"
-    Info (12134): Parameter "port_scanclkena" = "PORT_UNUSED"
-    Info (12134): Parameter "port_scandata" = "PORT_UNUSED"
-    Info (12134): Parameter "port_scandataout" = "PORT_UNUSED"
-    Info (12134): Parameter "port_scandone" = "PORT_UNUSED"
-    Info (12134): Parameter "port_scanread" = "PORT_UNUSED"
-    Info (12134): Parameter "port_scanwrite" = "PORT_UNUSED"
-    Info (12134): Parameter "port_clk0" = "PORT_USED"
-    Info (12134): Parameter "port_clk1" = "PORT_UNUSED"
-    Info (12134): Parameter "port_clk2" = "PORT_UNUSED"
-    Info (12134): Parameter "port_clk3" = "PORT_UNUSED"
-    Info (12134): Parameter "port_clk4" = "PORT_UNUSED"
-    Info (12134): Parameter "port_clk5" = "PORT_UNUSED"
-    Info (12134): Parameter "port_clkena0" = "PORT_UNUSED"
-    Info (12134): Parameter "port_clkena1" = "PORT_UNUSED"
-    Info (12134): Parameter "port_clkena2" = "PORT_UNUSED"
-    Info (12134): Parameter "port_clkena3" = "PORT_UNUSED"
-    Info (12134): Parameter "port_clkena4" = "PORT_UNUSED"
-    Info (12134): Parameter "port_clkena5" = "PORT_UNUSED"
-    Info (12134): Parameter "port_extclk0" = "PORT_UNUSED"
-    Info (12134): Parameter "port_extclk1" = "PORT_UNUSED"
-    Info (12134): Parameter "port_extclk2" = "PORT_UNUSED"
-    Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
-    Info (12134): Parameter "width_clock" = "5"
-Info (12021): Found 1 design units, including 1 entities, in source file db/cl_25_24_quartus_altpll.v
-    Info (12023): Found entity 1: cl_25_24_quartus_altpll File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/cl_25_24_quartus_altpll.v Line: 30
-Info (12128): Elaborating entity "cl_25_24_quartus_altpll" for hierarchy "cl_25_24_quartus:clk25|altpll:altpll_component|cl_25_24_quartus_altpll:auto_generated" File: c:/intelfpga/20.1/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "buffer_ram_dp" for hierarchy "buffer_ram_dp:DP_RAM" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 102
-Warning (10850): Verilog HDL warning at buffer_ram_dp.v(38): number of words (19214) in memory file does not match the number of elements in the address range [0:32767] File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/buffer_ram_dp.v Line: 38
-Info (12128): Elaborating entity "VGA_Driver640x480" for hierarchy "VGA_Driver640x480:VGA640x480" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 120
-Warning (10230): Verilog HDL assignment warning at VGA_driver.v(40): truncated value with size 32 to match size of target (10) File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 40
-Warning (10230): Verilog HDL assignment warning at VGA_driver.v(41): truncated value with size 32 to match size of target (9) File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 41
-Warning (10230): Verilog HDL assignment warning at VGA_driver.v(54): truncated value with size 32 to match size of target (10) File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 54
-Info (12128): Elaborating entity "FSM_game" for hierarchy "FSM_game:juego" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 151
-Warning (10034): Output port "mem_px_addr" at FSM_game.v(14) has no driver File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 14
-Warning (10034): Output port "mem_px_data" at FSM_game.v(15) has no driver File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 15
-Warning (10034): Output port "px_wr" at FSM_game.v(20) has no driver File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 20
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "btnr" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 146
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "btnr" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 146
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "btnr" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 146
-    Warning (12110): Net "DP_RAM_addr_in[14]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[13]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[12]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[11]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[10]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[9]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[8]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[7]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[6]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[5]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[4]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[3]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[2]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[1]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_data_in[2]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 42
-    Warning (12110): Net "DP_RAM_data_in[1]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 42
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "btnr" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 146
-    Warning (12110): Net "DP_RAM_addr_in[14]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[13]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[12]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[11]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[10]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[9]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[8]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[7]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[6]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[5]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[4]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[3]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[2]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_addr_in[1]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 41
-    Warning (12110): Net "DP_RAM_data_in[2]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 42
-    Warning (12110): Net "DP_RAM_data_in[1]" is missing source, defaulting to GND File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 42
-Info (19000): Inferred 1 megafunctions from design logic
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "buffer_ram_dp:DP_RAM|ram_rtl_0" 
-        Info (286033): Parameter OPERATION_MODE set to ROM
-        Info (286033): Parameter WIDTH_A set to 3
-        Info (286033): Parameter WIDTHAD_A set to 15
-        Info (286033): Parameter NUMWORDS_A set to 32768
-        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-        Info (286033): Parameter INIT_FILE set to db/test_VGA.ram0_buffer_ram_dp_8473bf0d.hdl.mif
-Info (12130): Elaborated megafunction instantiation "buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0"
-Info (12133): Instantiated megafunction "buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0" with the following parameter:
-    Info (12134): Parameter "OPERATION_MODE" = "ROM"
-    Info (12134): Parameter "WIDTH_A" = "3"
-    Info (12134): Parameter "WIDTHAD_A" = "15"
-    Info (12134): Parameter "NUMWORDS_A" = "32768"
-    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
-    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
-    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
-    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
-    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-    Info (12134): Parameter "INIT_FILE" = "db/test_VGA.ram0_buffer_ram_dp_8473bf0d.hdl.mif"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_np71.tdf
-    Info (12023): Found entity 1: altsyncram_np71 File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/altsyncram_np71.tdf Line: 32
-Info (12021): Found 1 design units, including 1 entities, in source file db/decode_f8a.tdf
-    Info (12023): Found entity 1: decode_f8a File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/decode_f8a.tdf Line: 23
-Info (12021): Found 1 design units, including 1 entities, in source file db/mux_1nb.tdf
-    Info (12023): Found entity 1: mux_1nb File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/mux_1nb.tdf Line: 23
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_np71:auto_generated|ram_block1a0" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/altsyncram_np71.tdf Line: 42
-        Warning (14320): Synthesized away node "buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_np71:auto_generated|ram_block1a1" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/altsyncram_np71.tdf Line: 63
-        Warning (14320): Synthesized away node "buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_np71:auto_generated|ram_block1a2" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/altsyncram_np71.tdf Line: 84
-        Warning (14320): Synthesized away node "buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_np71:auto_generated|ram_block1a3" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/altsyncram_np71.tdf Line: 105
-        Warning (14320): Synthesized away node "buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_np71:auto_generated|ram_block1a4" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/altsyncram_np71.tdf Line: 126
-        Warning (14320): Synthesized away node "buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_np71:auto_generated|ram_block1a5" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/altsyncram_np71.tdf Line: 147
-        Warning (14320): Synthesized away node "buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_np71:auto_generated|ram_block1a9" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/altsyncram_np71.tdf Line: 231
-        Warning (14320): Synthesized away node "buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_np71:auto_generated|ram_block1a10" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/altsyncram_np71.tdf Line: 252
-        Warning (14320): Synthesized away node "buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_np71:auto_generated|ram_block1a11" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/altsyncram_np71.tdf Line: 273
-Warning (12162): EDA synthesis tool is specified as "Custom", but Library Mapping File is not specified
-Warning (12163): EDA synthesis tool is specified as "Custom", but VCC is not specified
-Warning (12164): EDA synthesis tool is specified as "Custom", but GND is not specified
-Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGA_Hsync_n" is stuck at VCC File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 8
-    Warning (13410): Pin "VGA_Vsync_n" is stuck at VCC File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 9
-Info (17049): 10 registers lost all their fanouts during netlist optimizations.
-Info (17036): Removed 12 MSB VCC or GND address nodes from RAM block "buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_np71:auto_generated|ALTSYNCRAM" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/db/altsyncram_np71.tdf Line: 210
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "rst" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 5
-    Warning (15610): No output dependent on input pin "bntr" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 18
-    Warning (15610): No output dependent on input pin "bntl" File: C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 21
-Info (21057): Implemented 15 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 4 input pins
-    Info (21059): Implemented 6 output pins
-    Info (21061): Implemented 1 logic cells
-    Info (21064): Implemented 3 RAM segments
-    Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 75 warnings
-    Info: Peak virtual memory: 4726 megabytes
-    Info: Processing ended: Sat Dec 05 10:18:17 2020
-    Info: Elapsed time: 00:00:29
-    Info: Total CPU time (on all processors): 00:00:52
+Warning (10036): Verilog HDL or VHDL warning at test_VGA.v(39): object "clk12M" assigned a value but never read File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/test_VGA.v Line: 39
+Warning (10230): Verilog HDL assignment warning at test_VGA.v(148): truncated value with size 32 to match size of target (19) File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/test_VGA.v Line: 148
+Info (12128): Elaborating entity "buffer_ram_dp" for hierarchy "buffer_ram_dp:DP_RAM" File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/test_VGA.v Line: 114
+Info (12128): Elaborating entity "VGA_Driver640x480" for hierarchy "VGA_Driver640x480:VGA640x480" File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/test_VGA.v Line: 135
+Warning (10230): Verilog HDL assignment warning at VGA_driver.v(41): truncated value with size 32 to match size of target (10) File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/VGA_driver.v Line: 41
+Warning (10230): Verilog HDL assignment warning at VGA_driver.v(42): truncated value with size 32 to match size of target (9) File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/VGA_driver.v Line: 42
+Warning (10230): Verilog HDL assignment warning at VGA_driver.v(51): truncated value with size 32 to match size of target (9) File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/VGA_driver.v Line: 51
+Warning (10230): Verilog HDL assignment warning at VGA_driver.v(55): truncated value with size 32 to match size of target (10) File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/VGA_driver.v Line: 55
+Info (12128): Elaborating entity "FSM_game" for hierarchy "FSM_game:juego" File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/test_VGA.v Line: 168
+Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(156): object "status_ball" assigned a value but never read File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 156
+Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(157): object "ball_init" assigned a value but never read File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 157
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(67): truncated value with size 32 to match size of target (19) File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 67
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(89): truncated value with size 32 to match size of target (19) File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 89
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(91): truncated value with size 32 to match size of target (12) File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 91
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(93): truncated value with size 32 to match size of target (19) File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 93
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(96): truncated value with size 32 to match size of target (10) File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 96
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(99): truncated value with size 32 to match size of target (19) File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 99
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(124): truncated value with size 32 to match size of target (19) File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 124
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(127): truncated value with size 32 to match size of target (19) File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 127
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(139): truncated value with size 32 to match size of target (19) File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 139
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 37 warnings
+    Info: Peak virtual memory: 665 megabytes
+    Info: Processing ended: Mon Dec 14 13:57:20 2020
+    Info: Elapsed time: 00:00:32
+    Info: Total CPU time (on all processors): 00:00:42
 
 

@@ -9,11 +9,13 @@ module test_VGA_TB;
 	// Outputs
 	wire VGA_Hsync_n;
 	wire VGA_Vsync_n;
-	wire VGA_R;
-	wire VGA_G;
-	wire VGA_B;
-   wire bntr;
-	wire bntl;
+	wire [3:0] VGA_R;
+	wire [3:0] VGA_G;
+	wire [3:0] VGA_B;
+   reg bntra;
+	reg bntla;
+	reg bntrb;
+	reg bntlb;
 	wire clkout;
 
 	// Instantiate the Unit Under Test (UUT)
@@ -25,8 +27,10 @@ module test_VGA_TB;
 		.VGA_R(VGA_R), 
 		.VGA_G(VGA_G), 
 		.VGA_B(VGA_B),
-		.bntr(bntr),
-		.bntl(bntr),
+		.bntra(bntra),
+		.bntla(bntla),
+		.bntrb(bntrb),
+		.bntlb(bntlb),
 		.clkout(clkout)
 	
 	);
@@ -35,21 +39,38 @@ module test_VGA_TB;
 		// Initialize Inputs
 		clk = 0;
 		rst = 1;
-		#200;
+		#614400;
 		rst = 0;
+		
+		bntra=0;
+		bntla=0;
+		bntrb=0;
+		bntlb=0;
+	/*	bntra=1;
+		#5
+		bntra=0;
+		bntla=1;
+		#5000
+		bntla=0;
+		bntrb=1;
+		#5000
+		bntrb=0;
+		bntlb=1;
+		#5000
+		bntlb=0;*/
 	end
 
-	//always #2 clk  = ~clk; //para 25 megas
-	always #4 clk  = ~clk; // para 12 megas
+	always #2 clk  = ~clk;
+	
 	
 	reg [9:0]line_cnt=0;
 	reg [9:0]row_cnt=0;
 	
 	
 	
-	/*************************
+	/*************************************************************************
 			INICIO DE  GENERACION DE ARCHIVO test_vga	
-	**************************/
+	**************************************************************************/
 
 	/* log para cargar de archivo*/
 	integer f;
@@ -57,14 +78,14 @@ module test_VGA_TB;
       f = $fopen("file_test_vga.txt","w");
    end
 	
-	reg clk_w =0;
-	always #1 clk_w  = ~clk_w;
+	reg clk_wf =0;
+	always #2 clk_wf  = ~clk_wf;
 	
 	/* ecsritura de log para cargar se cargados en https://ericeastwood.com/lab/vga-simulator/*/
 	initial forever begin
-	@(posedge clk_w)
-		$fwrite(f,"%0t ps: %b %b %b00 %b00 %b0\n",$time,VGA_Hsync_n, VGA_Vsync_n, VGA_R,VGA_G,VGA_B);
-		$display("%0t ps: %b %b %b00 %b00 %b0\n",$time,VGA_Hsync_n, VGA_Vsync_n, VGA_R,VGA_G,VGA_B);
+	@(posedge clk_wf)
+		$fwrite(f,"%0t ps: %b %b %b %b %b\n",$time,VGA_Hsync_n, VGA_Vsync_n, VGA_R[3:1],VGA_G[3:1],VGA_B[3:2]);
+//		$display("%0t ps: %b %b %b %b %b\n",$time,VGA_Hsync_n, VGA_Vsync_n, VGA_R[3:1],VGA_G[3:1],VGA_B[3:2]);
 		
 	end
 	
