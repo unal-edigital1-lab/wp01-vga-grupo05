@@ -1,4 +1,6 @@
 *.bak
 *.rpt
 hdl/quartus/simulation/
-
+hdl/quartus/db/
+hdl/quartus/greybox_tmp/
+hdl/quartus/incremental_db/
