@@ -7,9 +7,9 @@ module test_VGA(
 	// VGA input/output  
     output wire VGA_Hsync_n,  // horizontal sync output
     output wire VGA_Vsync_n,  // vertical sync output
-    output wire [3:0] VGA_R,	// 4-bit VGA red output
-    output wire [3:0] VGA_G,  // 4-bit VGA green output
-    output wire [3:0] VGA_B,  // 4-bit VGA blue output
+    output wire VGA_R,	// 4-bit VGA red output
+    output wire VGA_G,  // 4-bit VGA green output
+    output wire VGA_B,  // 4-bit VGA blue output
     output wire clkout,  
  	
 	// input/output
@@ -23,16 +23,16 @@ module test_VGA(
 );
 
 // TAMAÑO DE visualización 
-parameter CAM_SCREEN_X = 640;
-parameter CAM_SCREEN_Y = 480;
+parameter CAM_SCREEN_X = 176;
+parameter CAM_SCREEN_Y = 120;
 
-localparam AW = 19; // LOG2(CAM_SCREEN_X*CAM_SCREEN_Y)
-localparam DW = 12;
+localparam AW = 15; // LOG2(CAM_SCREEN_X*CAM_SCREEN_Y)
+localparam DW = 3;
 
 // El color es RGB 444
-localparam RED_VGA =   12'b111100000000;
-localparam GREEN_VGA = 12'b000011110000;
-localparam BLUE_VGA =  12'b000000001111;
+localparam RED_VGA =   3'b100;
+localparam GREEN_VGA = 3'b010;
+localparam BLUE_VGA =  3'b001;
 
 
 // Clk 
@@ -50,17 +50,17 @@ reg  [AW-1: 0] DP_RAM_addr_out;
 // Conexión VGA Driver
 wire [DW-1:0]data_mem;	   // Salida de dp_ram al driver VGA
 wire [DW-1:0]data_RGB444;  // salida del driver VGA al puerto
-wire [9:0]VGA_posX;		   // Determinar la pos de memoria que viene del VGA
-wire [8:0]VGA_posY;		   // Determinar la pos de memoria que viene del VGA
+wire [10:0]VGA_posX;		   // Determinar la pos de memoria que viene del VGA
+wire [10:0]VGA_posY;		   // Determinar la pos de memoria que viene del VGA
 
 
 /* ****************************************************************************
 la pantalla VGA es RGB 444, pero el almacenamiento en memoria se hace 332
 por lo tanto, los bits menos significactivos deben ser cero
 **************************************************************************** */
-	assign VGA_R = data_RGB444[11:8];
-	assign VGA_G = data_RGB444[7:4];
-	assign VGA_B = data_RGB444[3:0];
+	assign VGA_R = data_RGB444[2];
+	assign VGA_G = data_RGB444[1];
+	assign VGA_B = data_RGB444[0];
 
 
 
@@ -82,14 +82,14 @@ cl_25_24_quartus clk25(
 	
 );
 */
-/*
 
-clk50to85M  clk85(
+
+clk50to85M  clk85Meg(
 	.inclk0(clk12M),
 	.c0(clk25M));
 	
-	*/
-assign clk25M=clk;
+	
+//assign clk25M=clk;
 assign clkout=clk25M;
 
 /* ****************************************************************************
@@ -122,7 +122,7 @@ VGA_Driver640x480
 **************************************************************************** */
 VGA_Driver640x480 VGA640x480
 (
-	.rst(rst),
+	.rst(~rst),
 	.clk(clk25M), 				// 25MHz  para 60 hz de 640x480
 	.pixelIn(data_mem), 		// entrada del valor de color  pixel RGB 444 
 //	.pixelIn(RED_VGA), 		// entrada del valor de color  pixel RGB 444 
@@ -140,12 +140,17 @@ LÓgica para actualizar el pixel acorde con la buffer de memoria y el pixel de
 VGA si la imagen de la camara es menor que el display  VGA, los pixeles 
 adicionales seran iguales al color del último pixel de memoria 
 **************************************************************************** */
-
+reg[10:0] tempx;
+reg[10:0] tempy;
 always @ (VGA_posX, VGA_posY) begin
-		if ((VGA_posX>CAM_SCREEN_X) || (VGA_posY>CAM_SCREEN_Y))
-			DP_RAM_addr_out=19212;
-		else
-			DP_RAM_addr_out=VGA_posX+VGA_posY*CAM_SCREEN_Y;
+//		if ((VGA_posX>CAM_SCREEN_X) || (VGA_posY>CAM_SCREEN_Y))
+//			DP_RAM_addr_out=19212;
+//		else
+//			DP_RAM_addr_out=VGA_posX+VGA_posY*CAM_SCREEN_X;
+tempx=VGA_posX/8;
+tempy=VGA_posY/8;
+DP_RAM_addr_out=tempx+tempy*CAM_SCREEN_X;
+
 end
 
 
@@ -157,7 +162,7 @@ este bloque debe crear un nuevo archivo
 **************************************************************************** */
  FSM_game  juego(
 	 	.clk(clk25M),
-		.rst(rst),
+		.rst(~rst),
 		.btn_rh_a(btnra),
 		.btn_lf_a(btnla),
 		.btn_rh_b(btnrb),

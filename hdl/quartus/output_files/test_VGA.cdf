@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE10E22) Path("C:/Users/USER/Documents/2020-2/electronicadigitall/github/wp01-vga-grupo05/hdl/quartus/output_files/") File("test_VGA.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE10E22) Path("C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/output_files/") File("test_VGA.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

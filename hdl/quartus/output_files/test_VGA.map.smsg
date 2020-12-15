@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at FSM_game.v(36): always construct contains both blocking and non-blocking assignments File: /home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/FSM_game.v Line: 36
+Warning (10268): Verilog HDL information at FSM_game.v(58): always construct contains both blocking and non-blocking assignments File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 58

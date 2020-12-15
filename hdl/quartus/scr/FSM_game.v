@@ -3,8 +3,8 @@
 //borrar estado anterior de la pelota
 //cuadrar si es la paleta de abajo o la de arriba en ball
 module FSM_game #( 
-	parameter AW = 19, // Cantidad de bits  de la direccion 
-	parameter DW = 12 // cantidad de Bits de los datos 
+	parameter AW = 15, // Cantidad de bits  de la direccion 
+	parameter DW = 3 // cantidad de Bits de los datos 
 	)(
 	 	input clk,
 		input rst,
@@ -18,11 +18,11 @@ module FSM_game #(
 		output reg px_wr
    );
  //parametros
- parameter color_object=12'b111111111111;
- parameter color_screen=12'b111100000000;
- parameter bits_screen640= 9;
- parameter screen640= 640;
- parameter screen480= 480;
+ parameter color_object=3'b111;
+ parameter color_screen=3'b000;
+ parameter bits_screen640=8;
+ parameter screen640= 176;
+ parameter screen480= 120;
 
 /*
 //este bloque pinta la pantalla de azul
@@ -39,20 +39,20 @@ end
 end*/
 
 parameter score_limit = 10;
-parameter PALLET_W=64;
-parameter PALLET_H=20;
+parameter PALLET_W=50;
+parameter PALLET_H=5;
 
 reg [3:0] a_score = 0;
 reg [3:0] b_score = 0;
 
 
 //	maquina de estado PALETA A
-reg [18:0] pos_init =0;
+reg [AW-1:0] pos_init =0;
 reg [2:0] status =0;
 parameter start=0, pallet_a=1,  play_game=2, pallet_moves_rh=3, pallet_moves_lf=4, end_game=5;
 
 
-reg [9:0]pos_line =0;
+reg [8:0]pos_line =0;
 parameter DELAY_ERROR =0 ;
 
 always @(posedge clk) begin
@@ -67,13 +67,9 @@ case (status)
        pos_init=pos_init+1;
 		  px_wr <=1;
 		  mem_px_addr<= pos_init;
-		  if (pos_init<(screen640*100))
-			mem_px_data<=12'b111111111111;
-		  else if (pos_init<(screen640*200))
-			mem_px_data<=12'b000011110000;
-		  else if (pos_init<(screen640*300))
-			mem_px_data<=12'b000000001111;
-		  else 
+//		  if (pos_init<(screen640*100))
+//    		mem_px_data<=3'b111;
+//		  else 
 			mem_px_data<=color_screen;
 		 
 		  
@@ -86,9 +82,9 @@ case (status)
 		
 	//pinta la paleta 	
   pallet_a:begin
-	   mem_px_addr <= pos_init+pos_line*(screen640 +DELAY_ERROR);
+	   mem_px_addr <= pos_init+pos_line*(screen640);
 		mem_px_data <= color_object;
-		mem_px_data <= 3<<pos_line;
+		//mem_px_data <= 3<<pos_line;
 
 		pos_init=pos_init+1;
 		if (pos_init>PALLET_W)begin
@@ -121,8 +117,8 @@ case (status)
 pallet_moves_rh:begin
     //mirar si pega en la pared y si no se puede mover
     if (pos_init < screen640)begin
-      mem_px_addr<= pos_init-PALLET_W;
-		mem_px_data <= color_screen;
+//      mem_px_addr<= pos_init-PALLET_W;
+//		mem_px_data <= color_screen;
 
 		pos_init=pos_init+1;
 		mem_px_addr <= pos_init;

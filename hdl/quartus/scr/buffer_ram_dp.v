@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 module buffer_ram_dp#( 
-	parameter AW = 19, // Cantidad de bits  de la direccion 
-	parameter DW = 12, // cantidad de Bits de los datos 
+	parameter AW = 15, // Cantidad de bits  de la direccion 
+	parameter DW = 3, // cantidad de Bits de los datos 
 	parameter   imageFILE= "image.men")
 	(  
 	input  clk_w, 
