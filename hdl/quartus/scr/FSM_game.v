@@ -119,14 +119,13 @@ always @(posedge clk) begin
 			if(a_score >= score_limit || b_score >=score_limit)begin
 			status<=end_game;
 			end
-			if(done_pallet)begin
-				if(btn_rh_a)begin
-				  status <=pallet_moves_rh;
-				end
-				if(btn_lf_a)begin
-				  status <=pallet_moves_lf;
-				end
+			if(btn_rh_a)begin
+			  status <=pallet_moves_rh;
 			end
+			if(btn_lf_a)begin
+			  status <=pallet_moves_lf;
+			end
+
 		end
 
 		pallet_moves_rh:begin
@@ -134,16 +133,15 @@ always @(posedge clk) begin
 			 if (pos_init < screen640)begin
 				pos_init=pos_init+1;
 				print_pallet=1;
+				status<=play_game;
 			 end
-			 status<=play_game;
+			 
 		end 
 		pallet_moves_lf:begin
-
-			 if (pos_init > PALLET_W)begin
 				pos_init=pos_init-1;
 				print_pallet=1;
-			 end
-			 status<=play_game;
+				status<=play_game;
+			 
 		end
 
 		end_game:begin
