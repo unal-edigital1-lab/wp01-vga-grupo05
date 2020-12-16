@@ -53,20 +53,13 @@ parameter start=0, pallet_a=1,  play_game=2, pallet_moves_rh=3, pallet_moves_lf=
 
 
 reg [8:0]pos_line =0;
-reg [8:0]posX_pallet=0;
-parameter DELAY_ERROR =0 ;
+reg[5:0] count;
 
 //Bloque para imprimir la barra y puntos extremos
-
-reg done_pallet=0;
-reg done_screen=0;
-reg[5:0] count;
-reg print_pallet=0;
 
 always @(posedge clk) begin
 		if (rst) begin
 			pos_init =0;
-			posX_pallet=0;
 			count <= 0;
 			px_wr <=0;
 			status <=start;
@@ -132,15 +125,13 @@ always @(posedge clk) begin
 			 //mirar si pega en la pared y si no se puede mover
 			 if (pos_init < screen640)begin
 				pos_init=pos_init+1;
-				print_pallet=1;
-				status<=play_game;
+				status<=pallet_a;
 			 end
 			 
 		end 
 		pallet_moves_lf:begin
 				pos_init=pos_init-1;
-				print_pallet=1;
-				status<=play_game;
+				status<=pallet_a;
 			 
 		end
 
@@ -164,7 +155,18 @@ always @(posedge clk) begin
 case (status_ball)
 
   start_ball:begin
-  
+				count<=count+1;
+				if(count<
+				mem_px_addr <= (pos_init+pos_line*(screen640))+count;
+				mem_px_data <= 4;
+				if (pos_init>PALLET_W)begin
+					pos_init=0;
+					pos_line = pos_line +1;
+				end 
+				if (pos_line>PALLET_H)begin
+					 pos_init=PALLET_W;
+					 pos_line=0; 
+				end
   ball_init=(screen640-1)*(screen480/2-1)+(screen640/2);
   mem_px_addr=ball_init;
   mem_px_data=color_object;

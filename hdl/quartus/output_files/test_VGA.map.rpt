@@ -1,5 +1,5 @@
 Analysis & Elaboration report for test_VGA
-Wed Dec 16 11:25:43 2020
+Wed Dec 16 11:34:32 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -45,7 +45,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Wed Dec 16 11:25:43 2020       ;
+; Analysis & Elaboration Status      ; Successful - Wed Dec 16 11:34:32 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; test_VGA                                    ;
 ; Top-level Entity Name              ; test_VGA                                    ;
@@ -618,7 +618,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Wed Dec 16 11:25:15 2020
+    Info: Processing started: Wed Dec 16 11:34:09 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off test_VGA -c test_VGA --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -645,8 +645,7 @@ Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(27): Pa
 Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(28): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 28
 Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(29): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 29
 Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(52): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 52
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(57): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 57
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(159): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 159
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(150): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 150
 Warning (12162): EDA synthesis tool is specified as "Custom", but Library Mapping File is not specified
 Warning (12163): EDA synthesis tool is specified as "Custom", but VCC is not specified
 Warning (12164): EDA synthesis tool is specified as "Custom", but GND is not specified
@@ -722,26 +721,22 @@ Warning (10230): Verilog HDL assignment warning at VGA_driver.v(42): truncated v
 Warning (10230): Verilog HDL assignment warning at VGA_driver.v(51): truncated value with size 32 to match size of target (11) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 51
 Warning (10230): Verilog HDL assignment warning at VGA_driver.v(55): truncated value with size 32 to match size of target (11) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 55
 Info (12128): Elaborating entity "FSM_game" for hierarchy "FSM_game:juego" File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 173
-Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(56): object "posX_pallet" assigned a value but never read File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 56
-Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(61): object "done_pallet" assigned a value but never read File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 61
-Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(62): object "done_screen" assigned a value but never read File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 62
-Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(64): object "print_pallet" assigned a value but never read File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 64
-Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(157): object "status_ball" assigned a value but never read File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 157
-Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(158): object "ball_init" assigned a value but never read File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 158
-Warning (10230): Verilog HDL assignment warning at FSM_game.v(78): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 78
-Warning (10230): Verilog HDL assignment warning at FSM_game.v(93): truncated value with size 32 to match size of target (6) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 93
-Warning (10230): Verilog HDL assignment warning at FSM_game.v(95): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 95
-Warning (10230): Verilog HDL assignment warning at FSM_game.v(99): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 99
-Warning (10230): Verilog HDL assignment warning at FSM_game.v(103): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 103
-Warning (10230): Verilog HDL assignment warning at FSM_game.v(134): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 134
-Warning (10230): Verilog HDL assignment warning at FSM_game.v(141): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 141
+Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(148): object "status_ball" assigned a value but never read File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 148
+Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(149): object "ball_init" assigned a value but never read File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 149
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(71): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 71
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(86): truncated value with size 32 to match size of target (6) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 86
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(88): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 88
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(92): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 92
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(96): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 96
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(127): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 127
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(133): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 133
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (144001): Generated suppressed messages file G:/Github/wp01-vga-grupo05/hdl/quartus/output_files/test_VGA.map.smsg
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 40 warnings
-    Info: Peak virtual memory: 4709 megabytes
-    Info: Processing ended: Wed Dec 16 11:25:43 2020
-    Info: Elapsed time: 00:00:28
-    Info: Total CPU time (on all processors): 00:00:43
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 35 warnings
+    Info: Peak virtual memory: 4717 megabytes
+    Info: Processing ended: Wed Dec 16 11:34:32 2020
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:00:48
 
 
 +--------------------------------------------+
