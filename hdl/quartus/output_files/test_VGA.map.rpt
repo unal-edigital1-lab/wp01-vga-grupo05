@@ -1,5 +1,5 @@
-Analysis & Synthesis report for test_VGA
-Tue Dec 15 17:01:21 2020
+Analysis & Elaboration report for test_VGA
+Wed Dec 16 01:49:07 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -7,36 +7,18 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis RAM Summary
-  9. State Machine - |test_VGA|FSM_game:juego|status
- 10. Registers Removed During Synthesis
- 11. Removed Registers Triggering Further Register Optimizations
- 12. General Register Statistics
- 13. Registers Packed Into Inferred Megafunctions
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Source assignments for buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_s9d1:auto_generated
- 16. Parameter Settings for User Entity Instance: Top-level Entity: |test_VGA
- 17. Parameter Settings for User Entity Instance: clk50to85M:clk85Meg|altpll:altpll_component
- 18. Parameter Settings for User Entity Instance: buffer_ram_dp:DP_RAM
- 19. Parameter Settings for User Entity Instance: FSM_game:juego
- 20. Parameter Settings for Inferred Entity Instance: buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0
- 21. Parameter Settings for Inferred Entity Instance: FSM_game:juego|lpm_mult:Mult0
- 22. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
- 23. altpll Parameter Settings by Entity Instance
- 24. altsyncram Parameter Settings by Entity Instance
- 25. lpm_mult Parameter Settings by Entity Instance
- 26. Port Connectivity Checks: "VGA_Driver640x480:VGA640x480"
- 27. Port Connectivity Checks: "buffer_ram_dp:DP_RAM"
- 28. Post-Synthesis Netlist Statistics for Top Partition
- 29. Elapsed Time Per Partition
- 30. Analysis & Synthesis Messages
- 31. Analysis & Synthesis Suppressed Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Parameter Settings for User Entity Instance: Top-level Entity: |test_VGA
+  5. Parameter Settings for User Entity Instance: clk50to85M:clk85Meg|altpll:altpll_component
+  6. Parameter Settings for User Entity Instance: buffer_ram_dp:DP_RAM
+  7. Parameter Settings for User Entity Instance: FSM_game:juego
+  8. altpll Parameter Settings by Entity Instance
+  9. Analysis & Elaboration Settings
+ 10. Port Connectivity Checks: "VGA_Driver640x480:VGA640x480"
+ 11. Port Connectivity Checks: "buffer_ram_dp:DP_RAM"
+ 12. Analysis & Elaboration Messages
+ 13. Analysis & Elaboration Suppressed Messages
 
 
 
@@ -61,113 +43,23 @@ https://fpgasoftware.intel.com/eula.
 
 
 +----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                     ;
+; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Dec 15 17:01:21 2020       ;
+; Analysis & Elaboration Status      ; Successful - Wed Dec 16 01:49:07 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; test_VGA                                    ;
 ; Top-level Entity Name              ; test_VGA                                    ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 198                                         ;
-;     Total combinational functions  ; 198                                         ;
-;     Dedicated logic registers      ; 62                                          ;
-; Total registers                    ; 62                                          ;
-; Total pins                         ; 12                                          ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 98,304                                      ;
-; Embedded Multiplier 9-bit elements ; 0                                           ;
-; Total PLLs                         ; 1                                           ;
+; Total logic elements               ; N/A until Partition Merge                   ;
+;     Total combinational functions  ; N/A until Partition Merge                   ;
+;     Dedicated logic registers      ; N/A until Partition Merge                   ;
+; Total registers                    ; N/A until Partition Merge                   ;
+; Total pins                         ; N/A until Partition Merge                   ;
+; Total virtual pins                 ; N/A until Partition Merge                   ;
+; Total memory bits                  ; N/A until Partition Merge                   ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
+; Total PLLs                         ; N/A until Partition Merge                   ;
 +------------------------------------+---------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                              ;
-+------------------------------------------------------------------+--------------------+--------------------+
-; Option                                                           ; Setting            ; Default Value      ;
-+------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                           ; EP4CE10E22C8       ;                    ;
-; Top-level entity name                                            ; test_VGA           ; test_VGA           ;
-; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
-; Type of Retiming Performed During Resynthesis                    ; Full               ;                    ;
-; Resynthesis Optimization Effort                                  ; Normal             ;                    ;
-; Physical Synthesis Level for Resynthesis                         ; Normal             ;                    ;
-; Use Generated Physical Constraints File                          ; On                 ;                    ;
-; Use smart compilation                                            ; Off                ; Off                ;
-; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
-; Enable compact report table                                      ; Off                ; Off                ;
-; Restructure Multiplexers                                         ; Auto               ; Auto               ;
-; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
-; Preserve fewer node names                                        ; On                 ; On                 ;
-; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
-; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
-; State Machine Processing                                         ; Auto               ; Auto               ;
-; Safe State Machine                                               ; Off                ; Off                ;
-; Extract Verilog State Machines                                   ; On                 ; On                 ;
-; Extract VHDL State Machines                                      ; On                 ; On                 ;
-; Ignore Verilog initial constructs                                ; Off                ; Off                ;
-; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
-; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
-; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
-; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
-; Parallel Synthesis                                               ; On                 ; On                 ;
-; DSP Block Balancing                                              ; Auto               ; Auto               ;
-; NOT Gate Push-Back                                               ; On                 ; On                 ;
-; Power-Up Don't Care                                              ; On                 ; On                 ;
-; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
-; Remove Duplicate Registers                                       ; On                 ; On                 ;
-; Ignore CARRY Buffers                                             ; Off                ; Off                ;
-; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
-; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
-; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
-; Ignore LCELL Buffers                                             ; Off                ; Off                ;
-; Ignore SOFT Buffers                                              ; On                 ; On                 ;
-; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
-; Optimization Technique                                           ; Balanced           ; Balanced           ;
-; Carry Chain Length                                               ; 70                 ; 70                 ;
-; Auto Carry Chains                                                ; On                 ; On                 ;
-; Auto Open-Drain Pins                                             ; On                 ; On                 ;
-; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
-; Auto ROM Replacement                                             ; On                 ; On                 ;
-; Auto RAM Replacement                                             ; On                 ; On                 ;
-; Auto DSP Block Replacement                                       ; On                 ; On                 ;
-; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
-; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
-; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
-; Strict RAM Replacement                                           ; Off                ; Off                ;
-; Allow Synchronous Control Signals                                ; On                 ; On                 ;
-; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
-; Auto RAM Block Balancing                                         ; On                 ; On                 ;
-; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
-; Auto Resource Sharing                                            ; Off                ; Off                ;
-; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
-; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
-; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
-; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
-; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
-; Timing-Driven Synthesis                                          ; On                 ; On                 ;
-; Report Parameter Settings                                        ; On                 ; On                 ;
-; Report Source Assignments                                        ; On                 ; On                 ;
-; Report Connectivity Checks                                       ; On                 ; On                 ;
-; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
-; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
-; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
-; HDL message level                                                ; Level2             ; Level2             ;
-; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
-; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
-; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
-; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
-; Clock MUX Protection                                             ; On                 ; On                 ;
-; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
-; Block Design Naming                                              ; Auto               ; Auto               ;
-; SDC constraint protection                                        ; Off                ; Off                ;
-; Synthesis Effort                                                 ; Auto               ; Auto               ;
-; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
-; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
-; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
-; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
-; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
-+------------------------------------------------------------------+--------------------+--------------------+
 
 
 +------------------------------------------+
@@ -179,230 +71,11 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
 +----------------------------+-------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                        ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                    ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------+---------+
-; scr/PLL/clk50to85M.v             ; yes             ; User Wizard-Generated File   ; C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/PLL/clk50to85M.v   ;         ;
-; scr/FSM_game.v                   ; yes             ; User Verilog HDL File        ; C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v         ;         ;
-; scr/VGA_driver.v                 ; yes             ; User Verilog HDL File        ; C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v       ;         ;
-; scr/test_VGA.v                   ; yes             ; User Verilog HDL File        ; C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v         ;         ;
-; scr/buffer_ram_dp.v              ; yes             ; User Verilog HDL File        ; C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/buffer_ram_dp.v    ;         ;
-; altpll.tdf                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altpll.tdf                                               ;         ;
-; aglobal201.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                           ;         ;
-; stratix_pll.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_pll.inc                                          ;         ;
-; stratixii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratixii_pll.inc                                        ;         ;
-; cycloneii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/cycloneii_pll.inc                                        ;         ;
-; db/clk50to85m_altpll.v           ; yes             ; Auto-Generated Megafunction  ; C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/db/clk50to85m_altpll.v ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf                                           ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                    ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc                                              ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc                                           ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                                            ;         ;
-; altrom.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc                                               ;         ;
-; altram.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc                                               ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                                             ;         ;
-; db/altsyncram_s9d1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/db/altsyncram_s9d1.tdf ;         ;
-; db/decode_msa.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/db/decode_msa.tdf      ;         ;
-; db/decode_f8a.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/db/decode_f8a.tdf      ;         ;
-; db/mux_1nb.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/db/mux_1nb.tdf         ;         ;
-; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf                                             ;         ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_add_sub.inc                                          ;         ;
-; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.inc                                             ;         ;
-; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/bypassff.inc                                             ;         ;
-; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altshift.inc                                             ;         ;
-; multcore.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.tdf                                             ;         ;
-; csa_add.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/csa_add.inc                                              ;         ;
-; mpar_add.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mpar_add.inc                                             ;         ;
-; muleabz.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/muleabz.inc                                              ;         ;
-; mul_lfrg.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mul_lfrg.inc                                             ;         ;
-; mul_boothc.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mul_boothc.inc                                           ;         ;
-; alt_ded_mult.inc                 ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/alt_ded_mult.inc                                         ;         ;
-; alt_ded_mult_y.inc               ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/alt_ded_mult_y.inc                                       ;         ;
-; dffpipe.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/dffpipe.inc                                              ;         ;
-; mpar_add.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mpar_add.tdf                                             ;         ;
-; lpm_add_sub.tdf                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_add_sub.tdf                                          ;         ;
-; addcore.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/addcore.inc                                              ;         ;
-; look_add.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/look_add.inc                                             ;         ;
-; alt_stratix_add_sub.inc          ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/alt_stratix_add_sub.inc                                  ;         ;
-; db/add_sub_lgh.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/db/add_sub_lgh.tdf     ;         ;
-; altshift.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altshift.tdf                                             ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------+---------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                                                                 ;
-+---------------------------------------------+-----------------------------------------------------------------------------------------------+
-; Resource                                    ; Usage                                                                                         ;
-+---------------------------------------------+-----------------------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 198                                                                                           ;
-;                                             ;                                                                                               ;
-; Total combinational functions               ; 198                                                                                           ;
-; Logic element usage by number of LUT inputs ;                                                                                               ;
-;     -- 4 input functions                    ; 68                                                                                            ;
-;     -- 3 input functions                    ; 67                                                                                            ;
-;     -- <=2 input functions                  ; 63                                                                                            ;
-;                                             ;                                                                                               ;
-; Logic elements by mode                      ;                                                                                               ;
-;     -- normal mode                          ; 135                                                                                           ;
-;     -- arithmetic mode                      ; 63                                                                                            ;
-;                                             ;                                                                                               ;
-; Total registers                             ; 62                                                                                            ;
-;     -- Dedicated logic registers            ; 62                                                                                            ;
-;     -- I/O registers                        ; 0                                                                                             ;
-;                                             ;                                                                                               ;
-; I/O pins                                    ; 12                                                                                            ;
-; Total memory bits                           ; 98304                                                                                         ;
-;                                             ;                                                                                               ;
-; Embedded Multiplier 9-bit elements          ; 0                                                                                             ;
-;                                             ;                                                                                               ;
-; Total PLLs                                  ; 1                                                                                             ;
-;     -- PLLs                                 ; 1                                                                                             ;
-;                                             ;                                                                                               ;
-; Maximum fan-out node                        ; clk50to85M:clk85Meg|altpll:altpll_component|clk50to85M_altpll:auto_generated|wire_pll1_clk[0] ;
-; Maximum fan-out                             ; 76                                                                                            ;
-; Total fan-out                               ; 1170                                                                                          ;
-; Average fan-out                             ; 3.90                                                                                          ;
-+---------------------------------------------+-----------------------------------------------------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                       ;
-+------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-; Compilation Hierarchy Node                     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                        ; Entity Name       ; Library Name ;
-+------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-; |test_VGA                                      ; 198 (13)            ; 62 (0)                    ; 98304       ; 0            ; 0       ; 0         ; 12   ; 0            ; |test_VGA                                                                                                                  ; test_VGA          ; work         ;
-;    |FSM_game:juego|                            ; 99 (93)             ; 38 (38)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|FSM_game:juego                                                                                                   ; FSM_game          ; work         ;
-;       |lpm_mult:Mult0|                         ; 6 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|FSM_game:juego|lpm_mult:Mult0                                                                                    ; lpm_mult          ; work         ;
-;          |multcore:mult_core|                  ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|FSM_game:juego|lpm_mult:Mult0|multcore:mult_core                                                                 ; multcore          ; work         ;
-;             |mpar_add:padder|                  ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|FSM_game:juego|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder                                                 ; mpar_add          ; work         ;
-;                |lpm_add_sub:adder[0]|          ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|FSM_game:juego|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]                            ; lpm_add_sub       ; work         ;
-;                   |add_sub_lgh:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|FSM_game:juego|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_lgh:auto_generated ; add_sub_lgh       ; work         ;
-;    |VGA_Driver640x480:VGA640x480|              ; 58 (58)             ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|VGA_Driver640x480:VGA640x480                                                                                     ; VGA_Driver640x480 ; work         ;
-;    |buffer_ram_dp:DP_RAM|                      ; 8 (0)               ; 2 (0)                     ; 98304       ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|buffer_ram_dp:DP_RAM                                                                                             ; buffer_ram_dp     ; work         ;
-;       |altsyncram:ram_rtl_0|                   ; 8 (0)               ; 2 (0)                     ; 98304       ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0                                                                        ; altsyncram        ; work         ;
-;          |altsyncram_s9d1:auto_generated|      ; 8 (0)               ; 2 (2)                     ; 98304       ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_s9d1:auto_generated                                         ; altsyncram_s9d1   ; work         ;
-;             |decode_f8a:rden_decode_b|         ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_s9d1:auto_generated|decode_f8a:rden_decode_b                ; decode_f8a        ; work         ;
-;             |decode_msa:decode2|               ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_s9d1:auto_generated|decode_msa:decode2                      ; decode_msa        ; work         ;
-;    |clk50to85M:clk85Meg|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|clk50to85M:clk85Meg                                                                                              ; clk50to85M        ; work         ;
-;       |altpll:altpll_component|                ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|clk50to85M:clk85Meg|altpll:altpll_component                                                                      ; altpll            ; work         ;
-;          |clk50to85M_altpll:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|clk50to85M:clk85Meg|altpll:altpll_component|clk50to85M_altpll:auto_generated                                     ; clk50to85M_altpll ; work         ;
-;    |lpm_mult:Mult0|                            ; 20 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|lpm_mult:Mult0                                                                                                   ; lpm_mult          ; work         ;
-;       |multcore:mult_core|                     ; 20 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|lpm_mult:Mult0|multcore:mult_core                                                                                ; multcore          ; work         ;
-;          |mpar_add:padder|                     ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder                                                                ; mpar_add          ; work         ;
-;             |lpm_add_sub:adder[0]|             ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]                                           ; lpm_add_sub       ; work         ;
-;                |add_sub_lgh:auto_generated|    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test_VGA|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_lgh:auto_generated                ; add_sub_lgh       ; work         ;
-+------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                         ;
-+-------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
-; Name                                                                                ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF  ;
-+-------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
-; buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_s9d1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32768        ; 3            ; 32768        ; 3            ; 98304 ; None ;
-+-------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
-
-
-Encoding Type:  One-Hot
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |test_VGA|FSM_game:juego|status                                                                                              ;
-+------------------------+-----------------+------------------------+------------------------+------------------+-----------------+------------+
-; Name                   ; status.end_game ; status.pallet_moves_lf ; status.pallet_moves_rh ; status.play_game ; status.pallet_a ; status.000 ;
-+------------------------+-----------------+------------------------+------------------------+------------------+-----------------+------------+
-; status.000             ; 0               ; 0                      ; 0                      ; 0                ; 0               ; 0          ;
-; status.pallet_a        ; 0               ; 0                      ; 0                      ; 0                ; 1               ; 1          ;
-; status.play_game       ; 0               ; 0                      ; 0                      ; 1                ; 0               ; 1          ;
-; status.pallet_moves_rh ; 0               ; 0                      ; 1                      ; 0                ; 0               ; 1          ;
-; status.pallet_moves_lf ; 0               ; 1                      ; 0                      ; 0                ; 0               ; 1          ;
-; status.end_game        ; 1               ; 0                      ; 0                      ; 0                ; 0               ; 1          ;
-+------------------------+-----------------+------------------------+------------------------+------------------+-----------------+------------+
-
-
-+------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                 ;
-+----------------------------------------+-------------------------------------------+
-; Register name                          ; Reason for Removal                        ;
-+----------------------------------------+-------------------------------------------+
-; FSM_game:juego|mem_px_data[1,2]        ; Merged with FSM_game:juego|mem_px_data[0] ;
-; FSM_game:juego|pos_line[7,8]           ; Stuck at GND due to stuck port data_in    ;
-; FSM_game:juego|status.pallet_moves_rh  ; Lost fanout                               ;
-; FSM_game:juego|status.pallet_moves_lf  ; Lost fanout                               ;
-; FSM_game:juego|status~8                ; Lost fanout                               ;
-; FSM_game:juego|status~9                ; Lost fanout                               ;
-; FSM_game:juego|status~10               ; Lost fanout                               ;
-; FSM_game:juego|status.end_game         ; Stuck at GND due to stuck port data_in    ;
-; FSM_game:juego|pos_line[3..6]          ; Stuck at GND due to stuck port data_in    ;
-; Total Number of Removed Registers = 14 ;                                           ;
-+----------------------------------------+-------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                  ;
-+----------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; Register name              ; Reason for Removal        ; Registers Removed due to This Register                                              ;
-+----------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; FSM_game:juego|pos_line[8] ; Stuck at GND              ; FSM_game:juego|pos_line[3], FSM_game:juego|pos_line[4], FSM_game:juego|pos_line[5], ;
-;                            ; due to stuck port data_in ; FSM_game:juego|pos_line[6]                                                          ;
-+----------------------------+---------------------------+-------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 62    ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 22    ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 30    ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-----------------------------------------------------------------------------+
-; Registers Packed Into Inferred Megafunctions                                ;
-+-------------------------------------+--------------------------------+------+
-; Register Name                       ; Megafunction                   ; Type ;
-+-------------------------------------+--------------------------------+------+
-; buffer_ram_dp:DP_RAM|data_out[0..2] ; buffer_ram_dp:DP_RAM|ram_rtl_0 ; RAM  ;
-+-------------------------------------+--------------------------------+------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
-; 3:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; Yes        ; |test_VGA|VGA_Driver640x480:VGA640x480|countX[8] ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |test_VGA|VGA_Driver640x480:VGA640x480|countY[2] ;
-; 7:1                ; 15 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |test_VGA|FSM_game:juego|mem_px_addr[8]          ;
-; 10:1               ; 15 bits   ; 90 LEs        ; 45 LEs               ; 45 LEs                 ; Yes        ; |test_VGA|FSM_game:juego|pos_init[9]             ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |test_VGA|VGA_Driver640x480:VGA640x480|countY[3] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |test_VGA|FSM_game:juego|pos_line[8]             ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |test_VGA|FSM_game:juego|Selector45              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------+
-; Source assignments for buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0|altsyncram_s9d1:auto_generated ;
-+---------------------------------+--------------------+------+-----------------------------------+
-; Assignment                      ; Value              ; From ; To                                ;
-+---------------------------------+--------------------+------+-----------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                 ;
-+---------------------------------+--------------------+------+-----------------------------------+
 
 
 +--------------------------------------------------------------------------+
@@ -813,137 +486,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0 ;
-+------------------------------------+----------------------+--------------------------------+
-; Parameter Name                     ; Value                ; Type                           ;
-+------------------------------------+----------------------+--------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                        ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                     ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                   ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                   ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                 ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                        ;
-; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                        ;
-; WIDTH_A                            ; 3                    ; Untyped                        ;
-; WIDTHAD_A                          ; 15                   ; Untyped                        ;
-; NUMWORDS_A                         ; 32768                ; Untyped                        ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                        ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                        ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                        ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                        ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                        ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                        ;
-; WIDTH_B                            ; 3                    ; Untyped                        ;
-; WIDTHAD_B                          ; 15                   ; Untyped                        ;
-; NUMWORDS_B                         ; 32768                ; Untyped                        ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                        ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                        ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                        ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                        ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                        ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                        ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                        ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                        ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                        ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                        ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                        ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                        ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                        ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                        ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                        ;
-; BYTE_SIZE                          ; 8                    ; Untyped                        ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                        ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                        ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                        ;
-; INIT_FILE                          ; UNUSED               ; Untyped                        ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                        ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                        ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                        ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                        ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                        ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                        ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                        ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                        ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                        ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                        ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                        ;
-; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                        ;
-; CBXI_PARAMETER                     ; altsyncram_s9d1      ; Untyped                        ;
-+------------------------------------+----------------------+--------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: FSM_game:juego|lpm_mult:Mult0      ;
-+------------------------------------------------+--------------+---------------------+
-; Parameter Name                                 ; Value        ; Type                ;
-+------------------------------------------------+--------------+---------------------+
-; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
-; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
-; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
-; LPM_WIDTHA                                     ; 7            ; Untyped             ;
-; LPM_WIDTHB                                     ; 8            ; Untyped             ;
-; LPM_WIDTHP                                     ; 15           ; Untyped             ;
-; LPM_WIDTHR                                     ; 15           ; Untyped             ;
-; LPM_WIDTHS                                     ; 1            ; Untyped             ;
-; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped             ;
-; LPM_PIPELINE                                   ; 0            ; Untyped             ;
-; LATENCY                                        ; 0            ; Untyped             ;
-; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
-; INPUT_B_IS_CONSTANT                            ; YES          ; Untyped             ;
-; USE_EAB                                        ; OFF          ; Untyped             ;
-; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
-; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
-; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
-; CBXI_PARAMETER                                 ; NOTHING      ; Untyped             ;
-; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
-; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
-+------------------------------------------------+--------------+---------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                     ;
-+------------------------------------------------+--------------+---------------------+
-; Parameter Name                                 ; Value        ; Type                ;
-+------------------------------------------------+--------------+---------------------+
-; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
-; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
-; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
-; LPM_WIDTHA                                     ; 8            ; Untyped             ;
-; LPM_WIDTHB                                     ; 8            ; Untyped             ;
-; LPM_WIDTHP                                     ; 16           ; Untyped             ;
-; LPM_WIDTHR                                     ; 16           ; Untyped             ;
-; LPM_WIDTHS                                     ; 1            ; Untyped             ;
-; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped             ;
-; LPM_PIPELINE                                   ; 0            ; Untyped             ;
-; LATENCY                                        ; 0            ; Untyped             ;
-; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
-; INPUT_B_IS_CONSTANT                            ; YES          ; Untyped             ;
-; USE_EAB                                        ; OFF          ; Untyped             ;
-; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
-; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
-; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
-; CBXI_PARAMETER                                 ; NOTHING      ; Untyped             ;
-; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
-; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
-+------------------------------------------------+--------------+---------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +-----------------------------------------------------------------------------+
 ; altpll Parameter Settings by Entity Instance                                ;
 +-------------------------------+---------------------------------------------+
@@ -961,55 +503,94 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+---------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                      ;
-+-------------------------------------------+-------------------------------------------+
-; Name                                      ; Value                                     ;
-+-------------------------------------------+-------------------------------------------+
-; Number of entity instances                ; 1                                         ;
-; Entity Instance                           ; buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0 ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                 ;
-;     -- WIDTH_A                            ; 3                                         ;
-;     -- NUMWORDS_A                         ; 32768                                     ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                              ;
-;     -- WIDTH_B                            ; 3                                         ;
-;     -- NUMWORDS_B                         ; 32768                                     ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                    ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                              ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                      ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                 ;
-+-------------------------------------------+-------------------------------------------+
-
-
-+-----------------------------------------------------------------------+
-; lpm_mult Parameter Settings by Entity Instance                        ;
-+---------------------------------------+-------------------------------+
-; Name                                  ; Value                         ;
-+---------------------------------------+-------------------------------+
-; Number of entity instances            ; 2                             ;
-; Entity Instance                       ; FSM_game:juego|lpm_mult:Mult0 ;
-;     -- LPM_WIDTHA                     ; 7                             ;
-;     -- LPM_WIDTHB                     ; 8                             ;
-;     -- LPM_WIDTHP                     ; 15                            ;
-;     -- LPM_REPRESENTATION             ; UNSIGNED                      ;
-;     -- INPUT_A_IS_CONSTANT            ; NO                            ;
-;     -- INPUT_B_IS_CONSTANT            ; YES                           ;
-;     -- USE_EAB                        ; OFF                           ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                          ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx                            ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx                            ;
-; Entity Instance                       ; lpm_mult:Mult0                ;
-;     -- LPM_WIDTHA                     ; 8                             ;
-;     -- LPM_WIDTHB                     ; 8                             ;
-;     -- LPM_WIDTHP                     ; 16                            ;
-;     -- LPM_REPRESENTATION             ; UNSIGNED                      ;
-;     -- INPUT_A_IS_CONSTANT            ; NO                            ;
-;     -- INPUT_B_IS_CONSTANT            ; YES                           ;
-;     -- USE_EAB                        ; OFF                           ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                          ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx                            ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx                            ;
-+---------------------------------------+-------------------------------+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Elaboration Settings                                                                            ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE10E22C8       ;                    ;
+; Top-level entity name                                            ; test_VGA           ; test_VGA           ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Type of Retiming Performed During Resynthesis                    ; Full               ;                    ;
+; Resynthesis Optimization Effort                                  ; Normal             ;                    ;
+; Physical Synthesis Level for Resynthesis                         ; Normal             ;                    ;
+; Use Generated Physical Constraints File                          ; On                 ;                    ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -1031,90 +612,52 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 12                          ;
-; cycloneiii_ff         ; 62                          ;
-;     ENA               ; 19                          ;
-;     ENA SLD           ; 11                          ;
-;     SLD               ; 11                          ;
-;     plain             ; 21                          ;
-; cycloneiii_lcell_comb ; 201                         ;
-;     arith             ; 63                          ;
-;         2 data inputs ; 33                          ;
-;         3 data inputs ; 30                          ;
-;     normal            ; 138                         ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 9                           ;
-;         2 data inputs ; 22                          ;
-;         3 data inputs ; 37                          ;
-;         4 data inputs ; 68                          ;
-; cycloneiii_pll        ; 1                           ;
-; cycloneiii_ram_block  ; 12                          ;
-;                       ;                             ;
-; Max LUT depth         ; 10.60                       ;
-; Average LUT depth     ; 4.60                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:02     ;
-+----------------+--------------+
-
-
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Synthesis
+Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue Dec 15 17:00:58 2020
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off test_VGA -c test_VGA
+    Info: Processing started: Wed Dec 16 01:48:46 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off test_VGA -c test_VGA --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file scr/pll/clk50to85m.v
-    Info (12023): Found entity 1: clk50to85M File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/PLL/clk50to85M.v Line: 40
+    Info (12023): Found entity 1: clk50to85M File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/PLL/clk50to85M.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file scr/fsm_game.v
-    Info (12023): Found entity 1: FSM_game File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 5
+    Info (12023): Found entity 1: FSM_game File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file scr/vga_driver.v
-    Info (12023): Found entity 1: VGA_Driver640x480 File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 2
+    Info (12023): Found entity 1: VGA_Driver640x480 File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file scr/test_vga.v
-    Info (12023): Found entity 1: test_VGA File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 3
+    Info (12023): Found entity 1: test_VGA File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file scr/buffer_ram_dp.v
-    Info (12023): Found entity 1: buffer_ram_dp File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/buffer_ram_dp.v Line: 2
-Warning (10236): Verilog HDL Implicit Net warning at test_VGA.v(166): created implicit net for "btnra" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 166
-Warning (10236): Verilog HDL Implicit Net warning at test_VGA.v(167): created implicit net for "btnla" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 167
-Warning (10236): Verilog HDL Implicit Net warning at test_VGA.v(168): created implicit net for "btnrb" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 168
-Warning (10236): Verilog HDL Implicit Net warning at test_VGA.v(169): created implicit net for "btnlb" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 169
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(21): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 21
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(22): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 22
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(23): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 23
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(24): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 24
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(25): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 25
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(41): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 41
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(42): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 42
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(43): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 43
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(52): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 52
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(56): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 56
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(154): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 154
+    Info (12023): Found entity 1: buffer_ram_dp File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/buffer_ram_dp.v Line: 2
+Warning (10236): Verilog HDL Implicit Net warning at test_VGA.v(166): created implicit net for "btnra" File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 166
+Warning (10236): Verilog HDL Implicit Net warning at test_VGA.v(167): created implicit net for "btnla" File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 167
+Warning (10236): Verilog HDL Implicit Net warning at test_VGA.v(168): created implicit net for "btnrb" File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 168
+Warning (10236): Verilog HDL Implicit Net warning at test_VGA.v(169): created implicit net for "btnlb" File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 169
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(21): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 21
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(22): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 22
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(23): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 23
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(24): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 24
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(25): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 25
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(27): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 27
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(28): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 28
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(29): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 29
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(52): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 52
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(57): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 57
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(161): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 161
 Warning (12162): EDA synthesis tool is specified as "Custom", but Library Mapping File is not specified
 Warning (12163): EDA synthesis tool is specified as "Custom", but VCC is not specified
 Warning (12164): EDA synthesis tool is specified as "Custom", but GND is not specified
 Info (12127): Elaborating entity "test_VGA" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at test_VGA.v(150): truncated value with size 32 to match size of target (11) File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 150
-Warning (10230): Verilog HDL assignment warning at test_VGA.v(151): truncated value with size 32 to match size of target (11) File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 151
-Warning (10230): Verilog HDL assignment warning at test_VGA.v(152): truncated value with size 32 to match size of target (15) File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 152
-Info (12128): Elaborating entity "clk50to85M" for hierarchy "clk50to85M:clk85Meg" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 89
-Info (12128): Elaborating entity "altpll" for hierarchy "clk50to85M:clk85Meg|altpll:altpll_component" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/PLL/clk50to85M.v Line: 91
-Info (12130): Elaborated megafunction instantiation "clk50to85M:clk85Meg|altpll:altpll_component" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/PLL/clk50to85M.v Line: 91
-Info (12133): Instantiated megafunction "clk50to85M:clk85Meg|altpll:altpll_component" with the following parameter: File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/PLL/clk50to85M.v Line: 91
+Warning (10230): Verilog HDL assignment warning at test_VGA.v(150): truncated value with size 32 to match size of target (11) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 150
+Warning (10230): Verilog HDL assignment warning at test_VGA.v(151): truncated value with size 32 to match size of target (11) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 151
+Warning (10230): Verilog HDL assignment warning at test_VGA.v(152): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 152
+Info (12128): Elaborating entity "clk50to85M" for hierarchy "clk50to85M:clk85Meg" File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 89
+Info (12128): Elaborating entity "altpll" for hierarchy "clk50to85M:clk85Meg|altpll:altpll_component" File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/PLL/clk50to85M.v Line: 91
+Info (12130): Elaborated megafunction instantiation "clk50to85M:clk85Meg|altpll:altpll_component" File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/PLL/clk50to85M.v Line: 91
+Info (12133): Instantiated megafunction "clk50to85M:clk85Meg|altpll:altpll_component" with the following parameter: File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/PLL/clk50to85M.v Line: 91
     Info (12134): Parameter "bandwidth_type" = "AUTO"
     Info (12134): Parameter "clk0_divide_by" = "10"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
@@ -1170,133 +713,39 @@ Info (12133): Instantiated megafunction "clk50to85M:clk85Meg|altpll:altpll_compo
     Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
     Info (12134): Parameter "width_clock" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/clk50to85m_altpll.v
-    Info (12023): Found entity 1: clk50to85M_altpll File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/db/clk50to85m_altpll.v Line: 30
-Info (12128): Elaborating entity "clk50to85M_altpll" for hierarchy "clk50to85M:clk85Meg|altpll:altpll_component|clk50to85M_altpll:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "buffer_ram_dp" for hierarchy "buffer_ram_dp:DP_RAM" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 114
-Info (12128): Elaborating entity "VGA_Driver640x480" for hierarchy "VGA_Driver640x480:VGA640x480" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 135
-Warning (10230): Verilog HDL assignment warning at VGA_driver.v(41): truncated value with size 32 to match size of target (11) File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 41
-Warning (10230): Verilog HDL assignment warning at VGA_driver.v(42): truncated value with size 32 to match size of target (11) File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 42
-Warning (10230): Verilog HDL assignment warning at VGA_driver.v(51): truncated value with size 32 to match size of target (11) File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 51
-Warning (10230): Verilog HDL assignment warning at VGA_driver.v(55): truncated value with size 32 to match size of target (11) File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 55
-Info (12128): Elaborating entity "FSM_game" for hierarchy "FSM_game:juego" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 173
-Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(152): object "status_ball" assigned a value but never read File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 152
-Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(153): object "ball_init" assigned a value but never read File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 153
-Warning (10230): Verilog HDL assignment warning at FSM_game.v(67): truncated value with size 32 to match size of target (15) File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 67
-Warning (10230): Verilog HDL assignment warning at FSM_game.v(85): truncated value with size 32 to match size of target (15) File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 85
-Warning (10230): Verilog HDL assignment warning at FSM_game.v(89): truncated value with size 32 to match size of target (15) File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 89
-Warning (10230): Verilog HDL assignment warning at FSM_game.v(92): truncated value with size 32 to match size of target (9) File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 92
-Warning (10230): Verilog HDL assignment warning at FSM_game.v(95): truncated value with size 32 to match size of target (15) File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 95
-Warning (10230): Verilog HDL assignment warning at FSM_game.v(123): truncated value with size 32 to match size of target (15) File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 123
-Warning (10230): Verilog HDL assignment warning at FSM_game.v(135): truncated value with size 32 to match size of target (15) File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 135
-Warning (276027): Inferred dual-clock RAM node "buffer_ram_dp:DP_RAM|ram_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
-Info (19000): Inferred 1 megafunctions from design logic
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "buffer_ram_dp:DP_RAM|ram_rtl_0" 
-        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
-        Info (286033): Parameter WIDTH_A set to 3
-        Info (286033): Parameter WIDTHAD_A set to 15
-        Info (286033): Parameter NUMWORDS_A set to 32768
-        Info (286033): Parameter WIDTH_B set to 3
-        Info (286033): Parameter WIDTHAD_B set to 15
-        Info (286033): Parameter NUMWORDS_B set to 32768
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
-        Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-Info (278001): Inferred 2 megafunctions from design logic
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "FSM_game:juego|Mult0" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 85
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 152
-Info (12130): Elaborated megafunction instantiation "buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0"
-Info (12133): Instantiated megafunction "buffer_ram_dp:DP_RAM|altsyncram:ram_rtl_0" with the following parameter:
-    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
-    Info (12134): Parameter "WIDTH_A" = "3"
-    Info (12134): Parameter "WIDTHAD_A" = "15"
-    Info (12134): Parameter "NUMWORDS_A" = "32768"
-    Info (12134): Parameter "WIDTH_B" = "3"
-    Info (12134): Parameter "WIDTHAD_B" = "15"
-    Info (12134): Parameter "NUMWORDS_B" = "32768"
-    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
-    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
-    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
-    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
-    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK1"
-    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
-    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_s9d1.tdf
-    Info (12023): Found entity 1: altsyncram_s9d1 File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/db/altsyncram_s9d1.tdf Line: 34
-Info (12021): Found 1 design units, including 1 entities, in source file db/decode_msa.tdf
-    Info (12023): Found entity 1: decode_msa File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/db/decode_msa.tdf Line: 23
-Info (12021): Found 1 design units, including 1 entities, in source file db/decode_f8a.tdf
-    Info (12023): Found entity 1: decode_f8a File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/db/decode_f8a.tdf Line: 23
-Info (12021): Found 1 design units, including 1 entities, in source file db/mux_1nb.tdf
-    Info (12023): Found entity 1: mux_1nb File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/db/mux_1nb.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "FSM_game:juego|lpm_mult:Mult0" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 85
-Info (12133): Instantiated megafunction "FSM_game:juego|lpm_mult:Mult0" with the following parameter: File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 85
-    Info (12134): Parameter "LPM_WIDTHA" = "7"
-    Info (12134): Parameter "LPM_WIDTHB" = "8"
-    Info (12134): Parameter "LPM_WIDTHP" = "15"
-    Info (12134): Parameter "LPM_WIDTHR" = "15"
-    Info (12134): Parameter "LPM_WIDTHS" = "1"
-    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
-    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
-    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
-Info (12131): Elaborated megafunction instantiation "FSM_game:juego|lpm_mult:Mult0|multcore:mult_core", which is child of megafunction instantiation "FSM_game:juego|lpm_mult:Mult0" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 309
-Info (12131): Elaborated megafunction instantiation "FSM_game:juego|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "FSM_game:juego|lpm_mult:Mult0" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.tdf Line: 229
-Info (12131): Elaborated megafunction instantiation "FSM_game:juego|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]", which is child of megafunction instantiation "FSM_game:juego|lpm_mult:Mult0" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mpar_add.tdf Line: 78
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_lgh.tdf
-    Info (12023): Found entity 1: add_sub_lgh File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/db/add_sub_lgh.tdf Line: 23
-Info (12131): Elaborated megafunction instantiation "FSM_game:juego|lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "FSM_game:juego|lpm_mult:Mult0" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 352
-Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 152
-Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter: File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 152
-    Info (12134): Parameter "LPM_WIDTHA" = "8"
-    Info (12134): Parameter "LPM_WIDTHB" = "8"
-    Info (12134): Parameter "LPM_WIDTHP" = "16"
-    Info (12134): Parameter "LPM_WIDTHR" = "16"
-    Info (12134): Parameter "LPM_WIDTHS" = "1"
-    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
-    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
-    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
-Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult0|multcore:mult_core", which is child of megafunction instantiation "lpm_mult:Mult0" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 309
-Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult0|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "lpm_mult:Mult0" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.tdf Line: 229
-Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "lpm_mult:Mult0" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 352
-Warning (12162): EDA synthesis tool is specified as "Custom", but Library Mapping File is not specified
-Warning (12163): EDA synthesis tool is specified as "Custom", but VCC is not specified
-Warning (12164): EDA synthesis tool is specified as "Custom", but GND is not specified
+    Info (12023): Found entity 1: clk50to85M_altpll File: G:/Github/wp01-vga-grupo05/hdl/quartus/db/clk50to85m_altpll.v Line: 30
+Info (12128): Elaborating entity "clk50to85M_altpll" for hierarchy "clk50to85M:clk85Meg|altpll:altpll_component|clk50to85M_altpll:auto_generated" File: g:/quartus/quartus/libraries/megafunctions/altpll.tdf Line: 898
+Info (12128): Elaborating entity "buffer_ram_dp" for hierarchy "buffer_ram_dp:DP_RAM" File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 114
+Info (12128): Elaborating entity "VGA_Driver640x480" for hierarchy "VGA_Driver640x480:VGA640x480" File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 135
+Warning (10230): Verilog HDL assignment warning at VGA_driver.v(41): truncated value with size 32 to match size of target (11) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 41
+Warning (10230): Verilog HDL assignment warning at VGA_driver.v(42): truncated value with size 32 to match size of target (11) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 42
+Warning (10230): Verilog HDL assignment warning at VGA_driver.v(51): truncated value with size 32 to match size of target (11) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 51
+Warning (10230): Verilog HDL assignment warning at VGA_driver.v(55): truncated value with size 32 to match size of target (11) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 55
+Info (12128): Elaborating entity "FSM_game" for hierarchy "FSM_game:juego" File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 173
+Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(56): object "posX_pallet" assigned a value but never read File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 56
+Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(62): object "done_screen" assigned a value but never read File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 62
+Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(64): object "print_pallet" assigned a value but never read File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 64
+Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(159): object "status_ball" assigned a value but never read File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 159
+Warning (10036): Verilog HDL or VHDL warning at FSM_game.v(160): object "ball_init" assigned a value but never read File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 160
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(78): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 78
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(93): truncated value with size 32 to match size of target (6) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 93
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(95): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 95
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(99): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 99
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(103): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 103
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(135): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 135
+Warning (10230): Verilog HDL assignment warning at FSM_game.v(143): truncated value with size 32 to match size of target (15) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 143
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info (286030): Timing-Driven Synthesis is running
-Info (17049): 5 registers lost all their fanouts during netlist optimizations.
-Info (17016): Found the following redundant logic cells in design
-    Info (17048): Logic cell "FSM_game:juego|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_lgh:auto_generated|op_1~0"
-    Info (17048): Logic cell "FSM_game:juego|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_lgh:auto_generated|op_1~2"
-    Info (17048): Logic cell "FSM_game:juego|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_lgh:auto_generated|op_1~4"
-Info (144001): Generated suppressed messages file C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/output_files/test_VGA.map.smsg
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 4 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "bntra" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 18
-    Warning (15610): No output dependent on input pin "bntla" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 19
-    Warning (15610): No output dependent on input pin "bntrb" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 20
-    Warning (15610): No output dependent on input pin "bntlb" File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 23
-Info (21057): Implemented 230 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 6 input pins
-    Info (21059): Implemented 6 output pins
-    Info (21061): Implemented 205 logic cells
-    Info (21064): Implemented 12 RAM segments
-    Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 45 warnings
-    Info: Peak virtual memory: 4764 megabytes
-    Info: Processing ended: Tue Dec 15 17:01:21 2020
-    Info: Elapsed time: 00:00:23
+Info (144001): Generated suppressed messages file G:/Github/wp01-vga-grupo05/hdl/quartus/output_files/test_VGA.map.smsg
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 39 warnings
+    Info: Peak virtual memory: 4717 megabytes
+    Info: Processing ended: Wed Dec 16 01:49:07 2020
+    Info: Elapsed time: 00:00:21
     Info: Total CPU time (on all processors): 00:00:43
 
 
-+------------------------------------------+
-; Analysis & Synthesis Suppressed Messages ;
-+------------------------------------------+
-The suppressed messages can be found in C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/output_files/test_VGA.map.smsg.
++--------------------------------------------+
+; Analysis & Elaboration Suppressed Messages ;
++--------------------------------------------+
+The suppressed messages can be found in G:/Github/wp01-vga-grupo05/hdl/quartus/output_files/test_VGA.map.smsg.
 
 

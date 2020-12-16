@@ -18,12 +18,18 @@ module FSM_game #(
 		output reg px_wr
    );
  //parametros
- parameter color_object=3'b111;
- parameter color_screen=3'b000;
- parameter bits_screen640=8;
- parameter screen640= 176;
- parameter screen480= 120;
+	parameter color_object=3'b111;
+	parameter color_screen=3'b000;
+	parameter bits_screen640=8;
+	parameter screen640= 176;
+	parameter screen480= 120;
 
+	parameter score_limit = 10;
+	parameter PALLET_W=50;
+	parameter PALLET_H=5;
+
+	reg [3:0] a_score = 0;
+	reg [3:0] b_score = 0;
 /*
 //este bloque pinta la pantalla de azul
 reg [14:0] count=0;	
@@ -38,12 +44,6 @@ if (rst) begin
 end	
 end*/
 
-parameter score_limit = 10;
-parameter PALLET_W=50;
-parameter PALLET_H=5;
-
-reg [3:0] a_score = 0;
-reg [3:0] b_score = 0;
 
 
 //	maquina de estado PALETA A
@@ -53,98 +53,105 @@ parameter start=0, pallet_a=1,  play_game=2, pallet_moves_rh=3, pallet_moves_lf=
 
 
 reg [8:0]pos_line =0;
+reg [8:0]posX_pallet=0;
 parameter DELAY_ERROR =0 ;
 
+//Bloque para imprimir la barra y puntos extremos
+
+reg done_pallet=0;
+reg done_screen=0;
+reg[5:0] count;
+reg print_pallet=0;
+
 always @(posedge clk) begin
-if (rst) begin
-pos_init =0;
-status <=start;
-end 
-    
-case (status)
-
-  start:begin
-       pos_init=pos_init+1;
-		  px_wr <=1;
-		  mem_px_addr<= pos_init;
-//		  if (pos_init<(screen640*100))
-//    		mem_px_data<=3'b111;
-//		  else 
-			mem_px_data<=color_screen;
-		 
-		  
-		  if (pos_init>(screen640*screen480))begin
-		    pos_init=0;
-			 pos_line =0;
-			 status <=pallet_a;
-		  end
-	  end
-		
-	//pinta la paleta 	
-  pallet_a:begin
-	   mem_px_addr <= pos_init+pos_line*(screen640);
-		mem_px_data <= color_object;
-		//mem_px_data <= 3<<pos_line;
-
-		pos_init=pos_init+1;
-		if (pos_init>PALLET_W)begin
-			pos_init=0;
-			pos_line = pos_line +1;
+		if (rst) begin
+			pos_init =0;
+			posX_pallet=0;
+			count <= 0;
+			px_wr <=0;
+			status <=start;
 		end 
-		if (pos_line>PALLET_H)begin
-		    pos_init=PALLET_W;
-			 pos_line=0;
-			 status <= play_game;
-			 px_wr <=0; 
-		 end
+    
+	case (status)
 
-		 end	 
-		 
-	play_game: begin
-	   if(a_score >= score_limit || b_score >=score_limit)begin
-		status<=end_game;
+	  start:begin
+			  pos_init=pos_init+1;
+			  px_wr <=1;
+			  mem_px_addr<= pos_init;
+			  mem_px_data<=color_screen;
+			 
+			  if (pos_init>(screen640*screen480))begin
+				 status <=pallet_a;
+			  end
+		  end
+			
+		//pinta la paleta 	
+	  pallet_a:begin
+				pos_init=0;
+				pos_line=0;
+				px_wr<=1;
+				count<=count+1;
+				if(count<PALLET_W)begin
+						mem_px_addr <= (pos_init+pos_line*(screen640))+count;
+						mem_px_data <= color_object;
+				end
+				if(count==PALLET_W+1)begin
+						mem_px_addr <= (pos_init-1+pos_line*(screen640));
+						mem_px_data <= 4;
+				end
+				if(count==PALLET_W+2)begin
+						mem_px_addr <= (pos_init+pos_line*(screen640))+count;
+						mem_px_data <= 4;
+						/*if (pos_init>PALLET_W)begin
+							pos_init=0;
+							pos_line = pos_line +1;
+						end 
+						if (pos_line>PALLET_H)begin
+							 pos_init=PALLET_W;
+							 pos_line=0; 
+						end*/
+						count<=0;
+						status<=play_game;
+				end						
+		end	 
+			 
+		play_game: begin
+			if(a_score >= score_limit || b_score >=score_limit)begin
+			status<=end_game;
+			end
+			if(done_pallet)begin
+				if(btn_rh_a)begin
+				  status <=pallet_moves_rh;
+				end
+				if(btn_lf_a)begin
+				  status <=pallet_moves_lf;
+				end
+			end
 		end
-		if(btn_rh_a)begin
-		  status <=pallet_moves_rh;
-		  
+
+		pallet_moves_rh:begin
+			 //mirar si pega en la pared y si no se puede mover
+			 if (pos_init < screen640)begin
+				pos_init=pos_init+1;
+				print_pallet=1;
+			 end
+			 status<=play_game;
+		end 
+		pallet_moves_lf:begin
+
+			 if (pos_init > PALLET_W)begin
+				pos_init=pos_init-1;
+				print_pallet=1;
+			 end
+			 status<=play_game;
 		end
-		if(btn_lf_a)begin
-		  status <=pallet_moves_lf;
+
+		end_game:begin
+		end	
+		default:begin
+		status <=start;
 		end
-	end
-
-		
-pallet_moves_rh:begin
-    //mirar si pega en la pared y si no se puede mover
-    if (pos_init < screen640)begin
-//      mem_px_addr<= pos_init-PALLET_W;
-//		mem_px_data <= color_screen;
-
-		pos_init=pos_init+1;
-		mem_px_addr <= pos_init;
-		mem_px_data <= color_object;
-	 end
-	 status<=play_game;
-end 
-pallet_moves_lf:begin
-
-    if (pos_init > PALLET_W)begin
-      mem_px_addr<= pos_init;
-		mem_px_data <= color_screen;
-		
-		pos_init=pos_init-PALLET_W-1;
-		mem_px_addr<= pos_init;
-		mem_px_data <= color_object;
-	 end
-	 status<=play_game;
-end
-
-end_game:begin
-  
-end		
-	default:
-		status <=start;	
-endcase		
+	endcase		
 end	
 
 
