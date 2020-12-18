@@ -29,7 +29,6 @@ Maquina de estados
 --
 
 Se hizo uso de dos maquinas de estados en el modulo FMS_game.v ya que se tienen dos objetos en patalla, que son la pelota y la paleta.
-Para 
 
 Código
 --
@@ -37,6 +36,9 @@ Código
 Archivo TOP
 ----
 
+A continuación se puede observar el modulo top del proyecto en donde se instanciaran los demas modulos que determinaran el funcionamiento de la VGA y de la logica del juego.
+
+Primero que todo se encuentran las salidas que iran a la VGA: determinaran los colores y sincronizacion de la misma, entradas de cables como los botones, reloj proporcionado por la FPGA y reset de la misma tarjeta:
 
      module test_VGA(
     input wire clk,            
@@ -45,9 +47,9 @@ Archivo TOP
 	// VGA input/output  
     output wire VGA_Hsync_n,  // horizontal sync output
     output wire VGA_Vsync_n,  // vertical sync output
-    output wire VGA_R,	// 4-bit VGA red output
-    output wire VGA_G,  // 4-bit VGA green output
-    output wire VGA_B,  // 4-bit VGA blue output
+    output wire VGA_R,	// 1-bit VGA red output
+    output wire VGA_G,  // 1-bit VGA green output
+    output wire VGA_B,  // 1-bit VGA blue output
     output wire clkout,  
  	
 	// input: botones para manipular la paleta
@@ -57,7 +59,7 @@ Archivo TOP
 		
 );
 
-TAMAÑO DE visualización 
+Teniendo en cuenta el tamaño de almacenamiento que la memoria de la FPGA nos puede proporcionar y la sugerencia de solo ocupar un 50% para visualización, diseñamos una ventana para visualizacion pequeña para después hacer un escalamiento de la misma y a continuación se encontrara el tamaño en X y Y y parametros que servieran para determinar la cantidad de bits de registros de memoria:
 
     parameter CAM_SCREEN_X = 176;
      parameter CAM_SCREEN_Y = 120;
