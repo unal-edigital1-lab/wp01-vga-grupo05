@@ -38,7 +38,7 @@ Archivo TOP
 ----
 
 
-module test_VGA(
+     module test_VGA(
     input wire clk,            
     input wire rst,         	// reset button
 
@@ -57,34 +57,37 @@ module test_VGA(
 		
 );
 
-// TAMAÑO DE visualización 
-parameter CAM_SCREEN_X = 176;
-parameter CAM_SCREEN_Y = 120;
+TAMAÑO DE visualización 
 
-localparam AW = 15; // LOG2(CAM_SCREEN_X*CAM_SCREEN_Y)
-localparam DW = 3;
+    parameter CAM_SCREEN_X = 176;
+     parameter CAM_SCREEN_Y = 120;
 
-// El color es RGB 111
-localparam RED_VGA =   3'b100;
-localparam GREEN_VGA = 3'b010;
-localparam BLUE_VGA =  3'b001;
+    localparam AW = 15; // LOG2(CAM_SCREEN_X*CAM_SCREEN_Y)
+    localparam DW = 3;
+
+El color es RGB 111
+
+    localparam RED_VGA =   3'b100;
+    localparam GREEN_VGA = 3'b010;
+    localparam BLUE_VGA =  3'b001;
 
 
-// Clk 
-wire clk50M;
-wire clk85M;
+Clk
 
-// Conexion por ram de puerto de escritura y lectura
+    wire clk50M;
+    wire clk85M;
 
-wire  [AW-1: 0] DP_RAM_addr_in;  
-wire  [DW-1: 0] DP_RAM_data_in;
-wire DP_RAM_regW;
+Conexion por ram de puerto de escritura y lectura
 
-wire  [AW-1: 0] DP_RAM_addr_in2;  
-wire  [DW-1: 0] DP_RAM_data_in2;
-wire DP_RAM_regW2;
+    wire  [AW-1: 0] DP_RAM_addr_in;  
+    wire  [DW-1: 0] DP_RAM_data_in;
+    wire DP_RAM_regW;
 
-reg  [AW-1: 0] DP_RAM_addr_out;  
+    wire  [AW-1: 0] DP_RAM_addr_in2;  
+    wire  [DW-1: 0] DP_RAM_data_in2;
+    wire DP_RAM_regW2;
+
+    reg  [AW-1: 0] DP_RAM_addr_out;  
 	
 Conexión VGA Driver
 
@@ -110,16 +113,16 @@ Se realiza multiplicador de frecuencia de 50MHz a 85MHz (clk para implementació
     reg clk5K = 0;
     reg [13:0] count_ant=0;
 
-always @(posedge clk50M)begin
+    always @(posedge clk50M)begin
 	
 		count_ant=count_ant+1;
 		if (count_ant==10000) begin
 				clk5K=~clk5K;
 				count_ant=0;
 	end
-end
+    end
 
-clk50to85M  clk85Meg(
+    clk50to85M  clk85Meg(
 	.inclk0(clk50M),
 	.c0(clk85M));
 	
@@ -136,7 +139,7 @@ buffer_ram_dp buffer memoria dual port y reloj de lectura y escritura separados
     wire [DW-1: 0]cablecito22;
     assign cablecito22 = DP_RAM_data_in2;
 
-buffer_ram_dp #( AW,DW,"G:/Github/wp01-vga-grupo05/hdl/quartus/scrimage.men")
+    buffer_ram_dp #( AW,DW,"G:/Github/wp01-vga-grupo05/hdl/quartus/scrimage.men")
 	DP_RAM(  
 	.clk_w(clk85M), 
 	.addr_in(cablecito11), 
@@ -168,7 +171,7 @@ VGA_Driver 1368x768, No se modifica el nombre , pero si varian los valores en el
      );
 
 
-LÓgica para actualizar el pixel acorde con la buffer de memoria y el pixel de 
+Lógica para actualizar el pixel acorde con la buffer de memoria y el pixel de 
 VGA. Se realiza escalamiento de 8 veces la imagen, para que ocupe toda la pantalla VGA
 
     reg[10:0] tempx;
