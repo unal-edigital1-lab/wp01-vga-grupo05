@@ -1,5 +1,5 @@
-Analysis & Synthesis report for test_VGA
-Thu Dec 17 20:32:20 2020
+Analysis & Elaboration report for test_VGA
+Fri Dec 18 01:42:40 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -7,11 +7,11 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Messages
-  6. Analysis & Synthesis Suppressed Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Analysis & Elaboration Settings
+  5. Analysis & Elaboration Messages
+  6. Analysis & Elaboration Suppressed Messages
 
 
 
@@ -36,9 +36,9 @@ https://fpgasoftware.intel.com/eula.
 
 
 +----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                     ;
+; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Thu Dec 17 20:32:20 2020           ;
+; Analysis & Elaboration Status      ; Failed - Fri Dec 18 01:42:40 2020           ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; test_VGA                                    ;
 ; Top-level Entity Name              ; test_VGA                                    ;
@@ -55,8 +55,24 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------+---------------------------------------------+
 
 
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
 +------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                              ;
+; Analysis & Elaboration Settings                                                                            ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
@@ -145,68 +161,56 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
-
-
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Synthesis
+Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Thu Dec 17 20:32:02 2020
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off test_VGA -c test_VGA
+    Info: Processing started: Fri Dec 18 01:42:24 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off test_VGA -c test_VGA --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file scr/pll/clk50to85m.v
-    Info (12023): Found entity 1: clk50to85M File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/PLL/clk50to85M.v Line: 40
-Warning (10090): Verilog HDL syntax warning at FSM_game.v(202): extra block comment delimiter characters /* within block comment File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 202
+    Info (12023): Found entity 1: clk50to85M File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/PLL/clk50to85M.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file scr/fsm_game.v
-    Info (12023): Found entity 1: FSM_game File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 5
+    Info (12023): Found entity 1: FSM_game File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file scr/vga_driver.v
-    Info (12023): Found entity 1: VGA_Driver640x480 File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 2
+    Info (12023): Found entity 1: VGA_Driver640x480 File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/VGA_driver.v Line: 2
+Warning (10275): Verilog HDL Module Instantiation warning at test_VGA.v(163): ignored dangling comma in List of Port Connections File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 163
 Info (12021): Found 1 design units, including 1 entities, in source file scr/test_vga.v
-    Info (12023): Found entity 1: test_VGA File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 3
+    Info (12023): Found entity 1: test_VGA File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file scr/buffer_ram_dp.v
-    Info (12023): Found entity 1: buffer_ram_dp File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/buffer_ram_dp.v Line: 2
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(25): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 25
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(26): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 26
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(27): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 27
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(28): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 28
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(29): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 29
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(31): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 31
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(32): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 32
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(33): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 33
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(34): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 34
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(35): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 35
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(54): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 54
-Error (10989): SystemVerilog error at FSM_game.v(59): can't declare packed array dimension with a single-valued range File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 59
-Error (10219): Verilog HDL Continuous Assignment error at FSM_game.v(60): object "pos_init2" on left-hand side of assignment must have a net type File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 60
-Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(223): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 223
-Info (144001): Generated suppressed messages file C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/output_files/test_VGA.map.smsg
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 14 warnings
-    Error: Peak virtual memory: 4704 megabytes
-    Error: Processing ended: Thu Dec 17 20:32:20 2020
-    Error: Elapsed time: 00:00:18
-    Error: Total CPU time (on all processors): 00:00:39
+    Info (12023): Found entity 1: buffer_ram_dp File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/buffer_ram_dp.v Line: 2
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(24): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 24
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(25): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 25
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(26): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 26
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(27): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 27
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(28): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 28
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(30): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 30
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(31): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 31
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(32): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 32
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(33): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 33
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(40): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 40
+Warning (10222): Verilog HDL Parameter Declaration warning at FSM_game.v(43): Parameter Declaration in module "FSM_game" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/FSM_game.v Line: 43
+Warning (12162): EDA synthesis tool is specified as "Custom", but Library Mapping File is not specified
+Warning (12163): EDA synthesis tool is specified as "Custom", but VCC is not specified
+Warning (12164): EDA synthesis tool is specified as "Custom", but GND is not specified
+Info (12127): Elaborating entity "test_VGA" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at test_VGA.v(79): truncated value with size 32 to match size of target (14) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 79
+Error (10183): Verilog HDL Module Instantiation error at test_VGA.v(105): too many parameter values (3) for instance of module "buffer_ram_dp", which declares 2 formal parameter(s) File: G:/Github/wp01-vga-grupo05/hdl/quartus/scr/test_VGA.v Line: 105
+Error (12153): Can't elaborate top-level user hierarchy
+Info (144001): Generated suppressed messages file G:/Github/wp01-vga-grupo05/hdl/quartus/output_files/test_VGA.map.smsg
+Error: Quartus Prime Analysis & Elaboration was unsuccessful. 2 errors, 17 warnings
+    Error: Peak virtual memory: 4696 megabytes
+    Error: Processing ended: Fri Dec 18 01:42:40 2020
+    Error: Elapsed time: 00:00:16
+    Error: Total CPU time (on all processors): 00:00:40
 
 
-+------------------------------------------+
-; Analysis & Synthesis Suppressed Messages ;
-+------------------------------------------+
-The suppressed messages can be found in C:/Users/USER/Documents/2020-2/electronica digital l/github/wp01-vga-grupo05/hdl/quartus/output_files/test_VGA.map.smsg.
++--------------------------------------------+
+; Analysis & Elaboration Suppressed Messages ;
++--------------------------------------------+
+The suppressed messages can be found in G:/Github/wp01-vga-grupo05/hdl/quartus/output_files/test_VGA.map.smsg.
 
 

@@ -1,19 +1,20 @@
-
+//Modulo VGA
 module VGA_Driver640x480 (
 	input rst,
-	input clk, 				// 25MHz  para 60 hz de 640x480
+	input clk, 				// 85MHz  para 60 hz de 1368x768
 	input  [2:0] pixelIn, 	// entrada del valor de color  pixel 
 	output  [2:0] pixelOut, // salida del valor pixel a la VGA 
-	output  Hsync_n,		// seÃ±al de sincronizaciÃ³n en horizontal negada
-	output  Vsync_n,		// seÃ±al de sincronizaciÃ³n en vertical negada 
+	output  Hsync_n,		// senal de sincronizacion en horizontal negada
+	output  Vsync_n,		// senal de sincronizacion en vertical negada 
 	output  [10:0] posX, 	// posicion en horizontal del pixel siguiente
 	output  [10:0] posY 		// posicion en vertical  del pixel siguiente
 );
 
-localparam SCREEN_X = 1368;  // tamaño de la pantalla visible en horizontal 1366 640
-localparam FRONT_PORCH_X =72;  //16
-localparam SYNC_PULSE_X = 144;  //96
-localparam BACK_PORCH_X = 216;  //48
+//Tamaño de la pantalla en horizontal y vertical, asi como las margenes de la pantalla
+localparam SCREEN_X = 1368;  // tamaño de la pantalla visible en horizontal 1368
+localparam FRONT_PORCH_X =72;  
+localparam SYNC_PULSE_X = 144;
+localparam BACK_PORCH_X = 216;  
 localparam TOTAL_SCREEN_X = SCREEN_X+FRONT_PORCH_X+SYNC_PULSE_X+BACK_PORCH_X; 	// total pixel pantalla en horizontal 
 
 
