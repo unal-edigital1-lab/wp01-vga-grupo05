@@ -1,6 +1,6 @@
 # WP01
 
-En el presente informe se mostrará la programación corrspondienre en lenguaje veriloj para desarrollar el juego Pong
+En el presente informe se mostrará la programación correspondiente en lenguaje Verilog para desarrollar el juego Pong
  
  Integrantes:
 -------
@@ -86,29 +86,29 @@ wire DP_RAM_regW2;
 
 reg  [AW-1: 0] DP_RAM_addr_out;  
 	
-// Conexión VGA Driver
-wire [DW-1:0]data_mem;	   // Salida de dp_ram al driver VGA
-wire [DW-1:0]data_RGB444;  // salida del driver VGA al puerto
-wire [10:0]VGA_posX;		   // Determinar la pos de memoria que viene del VGA
-wire [10:0]VGA_posY;		   // Determinar la pos de memoria que viene del VGA
+Conexión VGA Driver
+
+         wire [DW-1:0]data_mem;	   // 
+         wire [DW-1:0]data_RGB444;  // salida del driver VGA al puerto
+         wire [10:0]VGA_posX;		   // Determinar la pos de memoria que viene del VGA
+         wire [10:0]VGA_posY;		   // Determinar la pos de memoria que viene del VGA
 
 
-/* ****************************************************************************
 la pantalla VGA es RGB 111 y el almacenamiento en memoria se hace 332
-**************************************************************************** */
+
 	assign VGA_R = data_RGB444[2];
 	assign VGA_G = data_RGB444[1];
 	assign VGA_B = data_RGB444[0];
 
-/* ****************************************************************************
+
 Se realiza divisor de frecuencia de 50MHz a 5KHz (clk de FSM_game)
 Se realiza multiplicador de frecuencia de 50MHz a 85MHz (clk para implementación en pantalla VGA)
-************************************************************************** */
-assign clk50M =clk;
-assign clkout=clk85M;
 
-reg clk5K = 0;
-reg [13:0] count_ant=0;
+    assign clk50M =clk;
+    assign clkout=clk85M;
+
+    reg clk5K = 0;
+    reg [13:0] count_ant=0;
 
 always @(posedge clk50M)begin
 	
@@ -125,17 +125,16 @@ clk50to85M  clk85Meg(
 	
 
 
-/* ****************************************************************************
 buffer_ram_dp buffer memoria dual port y reloj de lectura y escritura separados
-**************************************************************************** */
-wire [AW-1: 0] cablecito11;
-assign cablecito11 = DP_RAM_addr_in;
-wire [DW-1: 0]cablecito12;
-assign cablecito12 = DP_RAM_data_in;
-wire [AW-1: 0] cablecito21;
-assign cablecito21 = DP_RAM_addr_in2;
-wire [DW-1: 0]cablecito22;
-assign cablecito22 = DP_RAM_data_in2;
+
+    wire [AW-1: 0] cablecito11;
+    assign cablecito11 = DP_RAM_addr_in;
+    wire [DW-1: 0]cablecito12;
+    assign cablecito12 = DP_RAM_data_in;
+    wire [AW-1: 0] cablecito21;
+    assign cablecito21 = DP_RAM_addr_in2;
+    wire [DW-1: 0]cablecito22;
+    assign cablecito22 = DP_RAM_data_in2;
 
 buffer_ram_dp #( AW,DW,"G:/Github/wp01-vga-grupo05/hdl/quartus/scrimage.men")
 	DP_RAM(  
@@ -152,11 +151,11 @@ buffer_ram_dp #( AW,DW,"G:/Github/wp01-vga-grupo05/hdl/quartus/scrimage.men")
 	);
 	
 
-/* ****************************************************************************
+
 VGA_Driver 1368x768, No se modifica el nombre , pero si varian los valores en el driver de la VGA
-**************************************************************************** */
-VGA_Driver640x480 VGA640x480
-(
+ 
+    VGA_Driver640x480 VGA640x480
+     (
 	.rst(~rst),
 	.clk(clk85M), 				// 25MHz  para 60 hz de 640x480
 	.pixelIn(data_mem), 		// entrada del valor de color  pixel RGB 444 
@@ -166,25 +165,25 @@ VGA_Driver640x480 VGA640x480
 	.posX(VGA_posX), 			// posición en horizontal del pixel siguiente
 	.posY(VGA_posY) 			// posición en vertical  del pixel siguiente
 
-);
+     );
 
-/* ****************************************************************************
+
 LÓgica para actualizar el pixel acorde con la buffer de memoria y el pixel de 
 VGA. Se realiza escalamiento de 8 veces la imagen, para que ocupe toda la pantalla VGA
-**************************************************************************** */
-reg[10:0] tempx;
-reg[10:0] tempy;
-always @ (VGA_posX, VGA_posY) begin
+
+    reg[10:0] tempx;
+    reg[10:0] tempy;
+    always @ (VGA_posX, VGA_posY) begin
 		tempx=VGA_posX/8;
 		tempy=VGA_posY/8;
 		DP_RAM_addr_out=tempx+tempy*CAM_SCREEN_X;
 
-end
+    end
 
-/*****************************************************************************
+
 Bloque de funcionamiento del juego, maquinas de estado de la paleta y de la bola y sus respectivos puertos de memoria
-**************************************************************************** */
- FSM_game  juego(
+
+     FSM_game  juego(
 	 	.clk(clk5K),
 		.rst(~rst),
 		.btn_rh_a(~bntra),
@@ -195,13 +194,10 @@ Bloque de funcionamiento del juego, maquinas de estado de la paleta y de la bola
 		.mem_px_addr2(DP_RAM_addr_in2),
 		.mem_px_data2(DP_RAM_data_in2),
 		.px_wr2(DP_RAM_regW2),
-   );
+     );
 	
 	
-endmodule
-
-
-
+    endmodule
 
 
 
@@ -209,7 +205,7 @@ GAME
 ----
 
 
-module FSM_game #( 
+     module FSM_game #( 
 	parameter AW = 15, // Cantidad de bits  de la direccion 
 	parameter DW = 3 // cantidad de Bits de los datos 
 	)(
@@ -229,7 +225,8 @@ module FSM_game #(
 		output reg [DW-1: 0] mem_px_data2,
 		output reg px_wr2
    );
- //parametros de la pantalla
+ parametros de la pantalla
+ 
 	parameter COLOR_OBJECT=3'b111;//Color de la paleta y bola
 	parameter COLOR_SCREEN=3'b101;//Color de fondo
 	parameter bits_SCREEN176=8;
@@ -262,11 +259,11 @@ module FSM_game #(
 	reg print_ball=0;
 	
 
-/* **************************************************
-MAQUINA DE ESTADOS DE LA PALETA
-*************************************************** */
 
-always @(posedge clk) begin
+MAQUINA DE ESTADOS DE LA PALETA
+
+
+    always @(posedge clk) begin
 		if (rst) begin
 			pos_init =0;
 			count <= 0;
@@ -348,11 +345,10 @@ always @(posedge clk) begin
 		status_pallet <=START_PALLET;
 		end
 	endcase		
-end
-	
-/* **************************************************
+    end
+ 
 MAQUINA DE ESTADOS DE LA PELOTA
-*************************************************** */
+
 
 	always @(posedge clk)begin
 		if (rst) begin
@@ -491,7 +487,7 @@ MAQUINA DE ESTADOS DE LA PELOTA
 ram
 ---
 
-module buffer_ram_dp#( 
+    module buffer_ram_dp#( 
 	parameter AW = 15, // Cantidad de bits  de la direccion de memoria
 	parameter DW = 3 // Cantidad de Bits de los datos de memoria
 	)(  
@@ -514,14 +510,16 @@ module buffer_ram_dp#(
 	output reg [DW-1: 0] data_out,
 	input reset
 	);
-
-// Numero de posiciones totales de memoria y construccion de la matriz para la misma
-localparam NPOS = 2 ** AW; 
- reg [DW-1: 0] ram [0: NPOS-1]; 
  
-//Bloque que alterna la escritura de los datos de la memoria entre las dos maquinas de estado del juego(dos puertos)
- reg selector=0;
-always @(posedge clk_w)begin
+Numero de posiciones totales de memoria y construccion de la matriz para la misma
+
+      localparam NPOS = 2 ** AW; 
+      reg [DW-1: 0] ram [0: NPOS-1]; 
+ 
+Bloque que alterna la escritura de los datos de la memoria entre las dos maquinas de estado del juego(dos puertos)
+ 
+    reg selector=0;
+    always @(posedge clk_w)begin
 		selector=~selector;
 		if(selector)begin
 			if(regwrite == 1)begin
@@ -531,15 +529,16 @@ always @(posedge clk_w)begin
 				ram[addr_in2] <= data_in2;
 			end
 		end
-end
+    end
 
-//	 Lectura  de la memoria 
-always @(posedge clk_r) begin 
-		data_out <= ram[addr_out]; 
-end
+Lectura  de la memoria 
+
+    always @(posedge clk_r) begin 
+ 		data_out <= ram[addr_out]; 
+    end
 
 
-endmodule
+    endmodule
 
 
 
@@ -547,8 +546,9 @@ Driver VGA
 ----
 
 
-//Modulo VGA
-module VGA_Driver640x480 (
+Modulo VGA
+
+    module VGA_Driver640x480 (
 	input rst,
 	input clk, 				// 85MHz  para 60 hz de 1368x768
 	input  [2:0] pixelIn, 	// entrada del valor de color  pixel 
@@ -557,36 +557,37 @@ module VGA_Driver640x480 (
 	output  Vsync_n,		// senal de sincronizacion en vertical negada 
 	output  [10:0] posX, 	// posicion en horizontal del pixel siguiente
 	output  [10:0] posY 		// posicion en vertical  del pixel siguiente
-);
+    );
 
-//Tamaño de la pantalla en horizontal y vertical, asi como las margenes de la pantalla
-localparam SCREEN_X = 1368;  // tamaño de la pantalla visible en horizontal 1368
-localparam FRONT_PORCH_X =72;  
-localparam SYNC_PULSE_X = 144;
-localparam BACK_PORCH_X = 216;  
-localparam TOTAL_SCREEN_X = SCREEN_X+FRONT_PORCH_X+SYNC_PULSE_X+BACK_PORCH_X; 	// total pixel pantalla en horizontal 
+Tamaño de la pantalla en horizontal y vertical, asi como las margenes de la pantalla
 
-
-localparam SCREEN_Y = 768; 	// tamaño de la pantalla visible en Vertical 768
-localparam FRONT_PORCH_Y =1;  
-localparam SYNC_PULSE_Y = 3;
-localparam BACK_PORCH_Y = 23;
-localparam TOTAL_SCREEN_Y = SCREEN_Y+FRONT_PORCH_Y+SYNC_PULSE_Y+BACK_PORCH_Y; 	// total pixel pantalla en Vertical 
+     localparam SCREEN_X = 1368;  // tamaño de la pantalla visible en horizontal 1368     
+     localparam FRONT_PORCH_X =72;  
+     localparam SYNC_PULSE_X = 144;
+     localparam BACK_PORCH_X = 216;  
+     localparam TOTAL_SCREEN_X = SCREEN_X+FRONT_PORCH_X+SYNC_PULSE_X+BACK_PORCH_X; 	// total pixel pantalla en horizontal 
 
 
-reg  [10:0] countX;
-reg  [10:0] countY;
-
-assign posX    = countX;
-assign posY    = countY;
-
-assign pixelOut = (countX<SCREEN_X) ? (pixelIn) : (3'b000);
-
-assign Hsync_n = ~((countX>=SCREEN_X+FRONT_PORCH_X) && (countX<SCREEN_X+SYNC_PULSE_X+FRONT_PORCH_X)); 
-assign Vsync_n = ~((countY>=SCREEN_Y+FRONT_PORCH_Y) && (countY<SCREEN_Y+FRONT_PORCH_Y+SYNC_PULSE_Y));
+     localparam SCREEN_Y = 768; 	// tamaño de la pantalla visible en Vertical 768
+     localparam FRONT_PORCH_Y =1;  
+     localparam SYNC_PULSE_Y = 3;
+     localparam BACK_PORCH_Y = 23;
+     localparam TOTAL_SCREEN_Y = SCREEN_Y+FRONT_PORCH_Y+SYNC_PULSE_Y+BACK_PORCH_Y; 	// total pixel pantalla en Vertical 
 
 
-always @(posedge clk) begin
+    reg  [10:0] countX;
+    reg  [10:0] countY;
+
+    assign posX    = countX;
+    assign posY    = countY;
+
+    assign pixelOut = (countX<SCREEN_X) ? (pixelIn) : (3'b000);
+
+    assign Hsync_n = ~((countX>=SCREEN_X+FRONT_PORCH_X) && (countX<SCREEN_X+SYNC_PULSE_X+FRONT_PORCH_X)); 
+    assign Vsync_n = ~((countY>=SCREEN_Y+FRONT_PORCH_Y) && (countY<SCREEN_Y+FRONT_PORCH_Y+SYNC_PULSE_Y));
+
+
+    always @(posedge clk) begin
 	if (rst) begin
 		countX <= SCREEN_X-10; /*para la simulación sea mas rapido*/
 		countY <= SCREEN_Y-4;/*para la simulación sea mas rapido*/
@@ -606,9 +607,9 @@ always @(posedge clk) begin
 			countY <= countY;
 		end
 	end
-end
+    end
 
-endmodule
+    endmodule
 
 
 Testbench
@@ -616,7 +617,7 @@ Testbench
 
 
 
-module test_VGA_TB;
+    module test_VGA_TB;
 
 	// Inputs
 	reg clk;
@@ -628,7 +629,7 @@ module test_VGA_TB;
 	wire VGA_R;
 	wire VGA_G;
 	wire VGA_B;
-   reg bntra;
+     reg bntra;
 	reg bntla;
 	reg bntrb;
 	reg bntlb;
@@ -682,17 +683,14 @@ module test_VGA_TB;
 	reg [9:0]line_cnt=0;
 	reg [9:0]row_cnt=0;
 	
+INICIO DE  GENERACION DE ARCHIVO test_vga	
 	
-	
-	/*************************************************************************
-			INICIO DE  GENERACION DE ARCHIVO test_vga	
-	**************************************************************************/
 
 	/* log para cargar de archivo*/
 	integer f;
 	initial begin
       f = $fopen("file_test_vga.txt","w");
-   end
+    end
 	
 	reg clk_wf =0;
 	always #2 clk_wf  = ~clk_wf;
@@ -707,7 +705,7 @@ A continuación se realizo la siguiente línea de código para porder realizar l
 		
 	end
 	
-endmodule
+    endmodule
 
 
 Proceso
@@ -723,3 +721,6 @@ finalmente se juntaron las dos cosas como producto final
 
 Resultados
 --
+
+
+https://drive.google.com/file/d/1d2US2RaaHcAs3Chz77WddsDbuIWiTE4V/view?usp=sharing
