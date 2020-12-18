@@ -11,6 +11,7 @@ module test_VGA(
     output wire VGA_G,  // 4-bit VGA green output
     output wire VGA_B,  // 4-bit VGA blue output
     output wire clkout,  
+	 output ledb1,
  	
 	// input/output
 	
@@ -36,14 +37,18 @@ localparam BLUE_VGA =  3'b001;
 
 
 // Clk 
-wire clk12M;
-wire clk25M;
+wire clk50M;
+wire clk85M;
 
-// Conexión dual por ram
+// Conexión dual por ram, conexon de los dos puertos
 
 wire  [AW-1: 0] DP_RAM_addr_in;  
 wire  [DW-1: 0] DP_RAM_data_in;
 wire DP_RAM_regW;
+
+wire  [AW-1: 0] DP_RAM_addr_in2;  
+wire  [DW-1: 0] DP_RAM_data_in2;
+wire DP_RAM_regW2;
 
 reg  [AW-1: 0] DP_RAM_addr_out;  
 	
@@ -53,6 +58,8 @@ wire [DW-1:0]data_RGB444;  // salida del driver VGA al puerto
 wire [10:0]VGA_posX;		   // Determinar la pos de memoria que viene del VGA
 wire [10:0]VGA_posY;		   // Determinar la pos de memoria que viene del VGA
 
+
+// assign ledb1=bntra;
 
 /* ****************************************************************************
 la pantalla VGA es RGB 444, pero el almacenamiento en memoria se hace 332
@@ -72,43 +79,50 @@ por lo tanto, los bits menos significactivos deben ser cero
   usar "tools -> IP Generator ..."  y general el ip con Clocking Wizard
   el bloque genera un reloj de 25Mhz usado para el VGA , a partir de una frecuencia de 12 Mhz
 **************************************************************************** */
-assign clk12M =clk;
+assign clk50M =clk;
 
-/*
-cl_25_24_quartus clk25(
-	.areset(rst),
-	.inclk0(clk12M),
-	.c0(clk25M)
+reg clk5K = 0;
+reg [13:0] count_ant=0;
+always @(posedge clk50M)begin
 	
-);
-*/
-
-
+		count_ant=count_ant+1;
+		if (count_ant==10000) begin
+				clk5K=~clk5K;
+				count_ant=0;
+	end
+end
 clk50to85M  clk85Meg(
-	.inclk0(clk12M),
-	.c0(clk25M));
+	.inclk0(clk50M),//50
+	.c0(clk85M));//85
 	
 	
-//assign clk25M=clk;
-assign clkout=clk25M;
+//assign clk85M=clk;
+assign clkout=clk85M;
 
 /* ****************************************************************************
 buffer_ram_dp buffer memoria dual port y reloj de lectura y escritura separados
 Se debe configurar AW  según los calculos realizados en el Wp01
 se recomiendia dejar DW a 8, con el fin de optimizar recursos  y hacer RGB 332
 **************************************************************************** */
-wire [AW-1: 0] cablecito1;
-assign cablecito1 = DP_RAM_addr_in;
-wire [DW-1: 0]cablecito2;
-assign cablecito2 = DP_RAM_data_in;
+wire [AW-1: 0] cablecito11;
+assign cablecito11 = DP_RAM_addr_in;
+wire [DW-1: 0]cablecito12;
+assign cablecito12 = DP_RAM_data_in;
+wire [AW-1: 0] cablecito21;
+assign cablecito21 = DP_RAM_addr_in2;
+wire [DW-1: 0]cablecito22;
+assign cablecito22 = DP_RAM_data_in2;
 
 buffer_ram_dp #( AW,DW,"/home/paula/Descargas/wp01-vga-grupo01/hdl/quartus/scr/image.men")
 	DP_RAM(  
-	.clk_w(clk25M), 
-	.addr_in(cablecito1), 
-	.data_in(cablecito2),
+	.clk_w(clk85M), 
+	.addr_in(cablecito11), 
+	.data_in(cablecito12),
 	.regwrite(DP_RAM_regW),
-	.clk_r(clk25M), 
+	.addr_in2(cablecito21), 
+	.data_in2(cablecito22),
+	.regwrite2(DP_RAM_regW2),
+	.clk_r(clk85M), 
 	.addr_out(DP_RAM_addr_out),
 	.data_out(data_mem)
 	);
@@ -123,7 +137,7 @@ VGA_Driver640x480
 VGA_Driver640x480 VGA640x480
 (
 	.rst(~rst),
-	.clk(clk25M), 				// 25MHz  para 60 hz de 640x480
+	.clk(clk85M), 				// 25MHz  para 60 hz de 640x480
 	.pixelIn(data_mem), 		// entrada del valor de color  pixel RGB 444 
 //	.pixelIn(RED_VGA), 		// entrada del valor de color  pixel RGB 444 
 	.pixelOut(data_RGB444), // salida del valor pixel a la VGA 
@@ -161,15 +175,19 @@ end
 este bloque debe crear un nuevo archivo 
 **************************************************************************** */
  FSM_game  juego(
-	 	.clk(clk25M),
+	 	.clk(clk5K),
 		.rst(~rst),
-		.btn_rh_a(btnra),
-		.btn_lf_a(btnla),
-		.btn_rh_b(btnrb),
-		.btn_lf_b(btnlb),
+		.btn_rh_a(~bntra),
+		.btn_lf_a(~bntla),
+		.btn_rh_b(~bntrb),
+		.btn_lf_b(~bntlb),
 		.mem_px_addr(DP_RAM_addr_in),
 		.mem_px_data(DP_RAM_data_in),
-		.px_wr(DP_RAM_regW)
+		.px_wr(DP_RAM_regW),
+		.mem_px_addr2(DP_RAM_addr_in2),
+		.mem_px_data2(DP_RAM_data_in2),
+		.px_wr2(DP_RAM_regW2),
+		.led(ledb1)
    );
 	
 	

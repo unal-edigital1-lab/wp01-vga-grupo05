@@ -24,7 +24,23 @@
 					"strict" : false
 				},
 				{
+					"name" : "ledb1",
+					"strict" : false
+				},
+				{
 					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "bntla",
+					"strict" : false
+				},
+				{
+					"name" : "bntra",
 					"strict" : false
 				}
 			]

@@ -1,15 +1,15 @@
-Fitter Status : Successful - Tue Dec 15 17:01:29 2020
+Fitter Status : Successful - Thu Dec 17 19:43:58 2020
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : test_VGA
 Top-level Entity Name : test_VGA
 Family : Cyclone IV E
 Device : EP4CE10E22C8
 Timing Models : Final
-Total logic elements : 199 / 10,320 ( 2 % )
-    Total combinational functions : 198 / 10,320 ( 2 % )
-    Dedicated logic registers : 62 / 10,320 ( < 1 % )
-Total registers : 62
-Total pins : 12 / 92 ( 13 % )
+Total logic elements : 569 / 10,320 ( 6 % )
+    Total combinational functions : 567 / 10,320 ( 5 % )
+    Dedicated logic registers : 132 / 10,320 ( 1 % )
+Total registers : 132
+Total pins : 13 / 92 ( 14 % )
 Total virtual pins : 0
 Total memory bits : 98,304 / 423,936 ( 23 % )
 Embedded Multiplier 9-bit elements : 0 / 46 ( 0 % )
