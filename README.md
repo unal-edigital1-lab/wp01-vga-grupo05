@@ -25,10 +25,14 @@ Pregunta 3:
 Nuestra RAM tiene dos registros de posición y dos registros de datos de la memoria, ya que al tener dos maquinas de estado, una para la paleta y otra para la pelota, se tendra que actualizar datos en dos posiciones diferente de memoria y para evitar errores se usa esta técnica.
 
 
-Maquina de estados
+Máquina de estados
 --
 
 Se hizo uso de dos maquinas de estados en el modulo FMS_game.v ya que se tienen dos objetos en patalla, que son la pelota y la paleta.
+A continución se muestra la máquina de estados de la paleta
+![image1](https://github.com/unal-edigital1-lab/wp01-vga-grupo05/blob/main/pallet(1).png)
+A continución se muestra la máquina de estados de la pelota
+![image1](https://github.com/unal-edigital1-lab/wp01-vga-grupo05/blob/main/Ball.png)
 
 Código
 --
@@ -716,10 +720,10 @@ A continuación se realizo la siguiente línea de código para porder realizar l
 Proceso
 --
 Para crear el juego final primero se creo la barra
-https://github.com/unal-edigital1-lab/wp01-vga-grupo05/blob/main/WhatsApp%20Image%202020-12-18%20at%2013.48.57.jpeg
+![image1](https://github.com/unal-edigital1-lab/wp01-vga-grupo05/blob/main/WhatsApp%20Image%202020-12-18%20at%2013.48.57.jpeg)
 
 Luego se creo la pelota
-https://github.com/unal-edigital1-lab/wp01-vga-grupo05/blob/main/WhatsApp%20Image%202020-12-18%20at%2013.48.24.jpeg
+![image1](https://github.com/unal-edigital1-lab/wp01-vga-grupo05/blob/main/WhatsApp%20Image%202020-12-18%20at%2013.48.24.jpeg)
 
 finalmente se juntaron las dos cosas como producto final 
 
@@ -727,5 +731,5 @@ finalmente se juntaron las dos cosas como producto final
 Resultados
 --
 
-
+A continuacion se presenta el video de la implementación.
 https://drive.google.com/file/d/1d2US2RaaHcAs3Chz77WddsDbuIWiTE4V/view?usp=sharing
