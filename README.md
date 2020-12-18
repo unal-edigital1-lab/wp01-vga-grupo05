@@ -1,5 +1,6 @@
 # WP01
- 1 entrega de proyecto 
+
+En el presente informe se mostrará la programación corrspondienre en lenguaje veriloj para desarrollar el juego Pong
  
  Integrantes:
 -------
@@ -11,27 +12,30 @@ Pregunta 1:
 ---------------------------------
 
 El tamaño máximo de buffer de memoria que se puede crear acorde a la FPGA ep4ce10e22c8 ciclobe IV es de 414 kb. 
-Se escogió bajar la resolución de la imagen al formato DCIF el cual tiene un tamaño de 528 x 320, ya que el formato 640 X 480 ocupa más espacio en memoria del que tenemos. Finalmete también se escogió un formato RGB11 para dejar más memoria libre. 
-En conlcusión con la visualización en un pantalla VGA 528 x 320 de RGB11, tenemos un 60.14% de memoria libre.
+Se escogió bajar la resolución de la imagen al formato DCIF el cual tiene un tamaño de 176 x 120, ya que el formato 640 X 480 ocupa más espacio en memoria del que tenemos. Finalmete también se escogió un formato RGB111 para dejar más memoria libre. 
+En conclusión con la visualización en un pantalla VGA 176 x 120 de RGB111, tenemos un 85.05% de memoria libre, el cual lo ocuparemos con los drivers necesarios para realizar el juego.
 
 Pregunta 2:
 --
 
-Para que el usuario pueda jugar, se pondran cuatro pulsadores para subir o bajar la barrita del Pong
+Para que el usuario pueda jugar, se usaran dos pulsadores para subir o bajar la barrita del Pong.
 
 Pregunta 3:
 --
-¿Usted qué estrategia para modificar la RAM considera pra la implementacio de la FSM del juego?
+Nuestra RAM tiene dos registros de posición y dos registros de datos de la memoria, ya que al tener dos maquinas de estado, una para la paleta y otra para la pelota, se tendra que actualizar datos en dos posiciones diferente de memoria y para evitar errores se usa esta técnica.
 
 
 Maquina de estados
 --
 
+Se hizo uso de dos maquinas de estados en el modulo FMS_game.v ya que se tienen dos objetos en patalla, que son la pelota y la paleta.
+Para 
 
 Código
 --
 
-Test_VGA
+Archivo TOP
+----
 
 
 module test_VGA(
@@ -606,6 +610,106 @@ end
 
 endmodule
 
+
+Testbench
+----
+
+
+
+module test_VGA_TB;
+
+	// Inputs
+	reg clk;
+	reg rst;
+
+	// Outputs
+	wire VGA_Hsync_n;
+	wire VGA_Vsync_n;
+	wire VGA_R;
+	wire VGA_G;
+	wire VGA_B;
+   reg bntra;
+	reg bntla;
+	reg bntrb;
+	reg bntlb;
+	wire clkout;
+
+	// Instantiate the Unit Under Test (UUT)
+	test_VGA uut (
+		.clk(clk), 
+		.rst(rst), 
+		.VGA_Hsync_n(VGA_Hsync_n), 
+		.VGA_Vsync_n(VGA_Vsync_n), 
+		.VGA_R(VGA_R), 
+		.VGA_G(VGA_G), 
+		.VGA_B(VGA_B),
+		.bntra(bntra),
+		.bntla(bntla),
+		.bntrb(bntrb),
+		.bntlb(bntlb),
+		.clkout(clkout)
+	
+	);
+	
+	initial begin
+		// Initialize Inputs
+		clk = 0;
+		rst = 0;
+		#614400;
+		rst = 1;
+		
+		bntra=0;
+		bntla=0;
+		bntrb=0;
+		bntlb=0;
+	/*	bntra=1;
+		#5
+		bntra=0;
+		bntla=1;
+		#5000
+		bntla=0;
+		bntrb=1;
+		#5000
+		bntrb=0;
+		bntlb=1;
+		#5000
+		bntlb=0;*/
+	end
+
+	always #2 clk  = ~clk;
+	
+	
+	reg [9:0]line_cnt=0;
+	reg [9:0]row_cnt=0;
+	
+	
+	
+	/*************************************************************************
+			INICIO DE  GENERACION DE ARCHIVO test_vga	
+	**************************************************************************/
+
+	/* log para cargar de archivo*/
+	integer f;
+	initial begin
+      f = $fopen("file_test_vga.txt","w");
+   end
+	
+	reg clk_wf =0;
+	always #2 clk_wf  = ~clk_wf;
+	
+	
+A continuación se realizo la siguiente línea de código para porder realizar la simulación en la VGA en la pagina  https://ericeastwood.com/lab/vga-simulator/*/
+
+	initial forever begin
+	@(posedge clk_wf)
+		$fwrite(f,"%0t ps: %b %b %b00 %b00 %b0\n",$time,VGA_Hsync_n, VGA_Vsync_n, VGA_R,VGA_G,VGA_B);
+
+		
+	end
+	
+endmodule
+
+
 Proceso
 --
 Para crear el juego final primero se creo la barra
@@ -615,5 +719,7 @@ Luego se creo la pelota
 https://github.com/unal-edigital1-lab/wp01-vga-grupo05/blob/main/WhatsApp%20Image%202020-12-18%20at%2013.48.24.jpeg
 
 finalmente se juntaron las dos cosas como producto final 
+
+
 Resultados
 --
