@@ -25,15 +25,6 @@ Pregunta 3:
 Nuestra RAM tiene dos registros de posición y dos registros de datos de la memoria, ya que al tener dos maquinas de estado, una para la paleta y otra para la pelota, se tendra que actualizar datos en dos posiciones diferente de memoria y para evitar errores se usa esta técnica.
 
 
-Máquina de estados
---
-
-Se hizo uso de dos maquinas de estados en el modulo FMS_game.v ya que se tienen dos objetos en patalla, que son la pelota y la paleta.
-A continución se muestra la máquina de estados de la paleta
-![image1](https://github.com/unal-edigital1-lab/wp01-vga-grupo05/blob/main/pallet(1).png)
-A continución se muestra la máquina de estados de la pelota
-![image1](https://github.com/unal-edigital1-lab/wp01-vga-grupo05/blob/main/Ball.png)
-
 Código
 --
 
@@ -71,19 +62,18 @@ Teniendo en cuenta el tamaño de almacenamiento que la memoria de la FPGA nos pu
     localparam AW = 15; // LOG2(CAM_SCREEN_X*CAM_SCREEN_Y)
     localparam DW = 3;
 
-El color es RGB 111
+De acuerdo con la PGA, tiene una configuración de color de RGB 111, representada de la siguiente manera:
 
     localparam RED_VGA =   3'b100;
     localparam GREEN_VGA = 3'b010;
     localparam BLUE_VGA =  3'b001;
-
-
-Clk
+    
+Tendremos dos cloks, uno que representara el que proporciona la FPGA de 50MHz y otro que sera la frecuencia de la pantalla que se esta utilizando, para este caso de 85MHz
 
     wire clk50M;
     wire clk85M;
 
-Conexion por ram de puerto de escritura y lectura
+Se hara conexion por ram de dos puertos de escritura y uno de lectura
 
     wire  [AW-1: 0] DP_RAM_addr_in;  
     wire  [DW-1: 0] DP_RAM_data_in;
@@ -97,21 +87,20 @@ Conexion por ram de puerto de escritura y lectura
 	
 Conexión VGA Driver
 
-         wire [DW-1:0]data_mem;	   // 
+         wire [DW-1:0]data_mem;	  
          wire [DW-1:0]data_RGB444;  // salida del driver VGA al puerto
-         wire [10:0]VGA_posX;		   // Determinar la pos de memoria que viene del VGA
-         wire [10:0]VGA_posY;		   // Determinar la pos de memoria que viene del VGA
+         wire [10:0]VGA_posX; // Determinar la pos de memoria que viene del VGA
+         wire [10:0]VGA_posY;	// Determinar la pos de memoria que viene del VGA
 
 
-la pantalla VGA es RGB 111 y el almacenamiento en memoria se hace 332
+La pantalla VGA es RGB 111 y el almacenamiento en memoria se hace 332, originalmente se tenia registros de 4 bits y por ello data_RGB444 se concontraba de 12 bits, para este caso solo sera de 3 bits
 
 	assign VGA_R = data_RGB444[2];
 	assign VGA_G = data_RGB444[1];
 	assign VGA_B = data_RGB444[0];
 
 
-Se realiza divisor de frecuencia de 50MHz a 5KHz (clk de FSM_game)
-Se realiza multiplicador de frecuencia de 50MHz a 85MHz (clk para implementación en pantalla VGA)
+Se realiza divisor de frecuencia de 50MHz a 5KHz (clk de FSM_game) esto con el fin de que el movimiento de las paletas y la pelota sea mas lento y visible para el ojo humano y asi proporcionar al usuario una mejor experiencia a la hora de jugar. Además, se realiza un multiplicador de frecuencia de 50MHz a 85MHz (clk para implementación en pantalla VGA) ya que esta necesita una frecuencia especifica para funcionar:
 
     assign clk50M =clk;
     assign clkout=clk85M;
@@ -134,7 +123,7 @@ Se realiza multiplicador de frecuencia de 50MHz a 85MHz (clk para implementació
 	
 
 
-buffer_ram_dp buffer memoria dual port y reloj de lectura y escritura separados
+Se instancia el modulo de buffer_ram_dp o buffer memoria dual port y reloj de lectura, teniendo dos puertos de escritura separados:
 
     wire [AW-1: 0] cablecito11;
     assign cablecito11 = DP_RAM_addr_in;
@@ -161,7 +150,7 @@ buffer_ram_dp buffer memoria dual port y reloj de lectura y escritura separados
 	
 
 
-VGA_Driver 1368x768, No se modifica el nombre , pero si varian los valores en el driver de la VGA
+Se instancia el modVGA_Driver 1368x768, No se modifica el nombre , pero si varian los valores en el driver de la VGA
  
     VGA_Driver640x480 VGA640x480
      (
@@ -212,7 +201,7 @@ Bloque de funcionamiento del juego, maquinas de estado de la paleta y de la bola
 
 GAME
 ----
-
+A continuación se presenta el modulo del juego PONG, empezando por las entradas y salidas del mismo que corresponden a las conexiones con la memoria, el reloj para el funcionamiento de los estados gracias a los flancos de subida y los botones que determinaran los movimientos:
 
      module FSM_game #( 
 	parameter AW = 15, // Cantidad de bits  de la direccion 
@@ -224,7 +213,7 @@ GAME
 		
 		//Botones de entrada RIGHT y LEFT
 		input btn_rh_a,
-      input btn_lf_a,
+      		input btn_lf_a,
 
 		//Variables de memoria de los dos puertos para las maquinas de estado
 		output reg [AW-1: 0] mem_px_addr,
@@ -234,7 +223,7 @@ GAME
 		output reg [DW-1: 0] mem_px_data2,
 		output reg px_wr2
    );
- parametros de la pantalla
+ De igual modo, se presentan los parametros que se utilizaran con respecto a mediciones de la pantalla, colores para la pantalla y los objetos, dimensiones con las que se dibuja la paleta y la pelota y posiciones X y Y de las msimas para poder hacer comparaciones y establecer movimientos especificos, además de los parametros para cada una de las maquinas de estado, contadores y verificadores de cumplimiento de funciones:
  
 	parameter COLOR_OBJECT=3'b111;//Color de la paleta y bola
 	parameter COLOR_SCREEN=3'b101;//Color de fondo
@@ -267,9 +256,18 @@ GAME
 	reg done_ball=0;
 	reg print_ball=0;
 	
+Máquina de estados
+--
 
+Se hizo uso de dos maquinas de estados en el modulo FMS_game.v ya que se tienen dos objetos en patalla, que son la pelota y la paleta.
 
 MAQUINA DE ESTADOS DE LA PALETA
+A continución se muestra el diagrama para la máquina de estados de la paleta:
+![image1](https://github.com/unal-edigital1-lab/wp01-vga-grupo05/blob/main/pallet(1).png)
+
+CODIGO DE LA MAQUINA DE ESTADOS PARA LA PALETA
+
+Se tiene en cuenta que todo el proceso de la paquina de estado estara determinada por el rst, asi inicializando los registros que posteriormente se utilizaran:
 
 
     always @(posedge clk) begin
@@ -281,6 +279,8 @@ MAQUINA DE ESTADOS DE LA PALETA
 		end 
     
 	case (status_pallet)
+
+El primer estado para la paleta es "START_PALLET", en el se toma una posicion inicial que ira aumentando gracias a la recurrencia del bloque y que poco a poco cuando va abarcando todas las posiciones de la pantalla, las va pintando de un color hasta abarcar toda la pantalla, después de esto se dara una posicion inicial para la paleta y se continuara al siguiente estado:
 
 	  START_PALLET:begin
 			  pos_init=pos_init+1;
@@ -296,7 +296,8 @@ MAQUINA DE ESTADOS DE LA PALETA
 			  end
 		  end
 			
-		//pinta la paleta 	
+En el siguiente estado se dibuja la paleta ademas de dos puntos que se encontraran al lado derecho e izquierda que facilitaran pintar la barra cuando esta se mueva, se tendra un contador que aumentara hasta cuando se cumpla la dimension en el eje X de la paleta y pintara esas posiciones con el color designado para la misma, mientras que las dos siguientes posiciones que aumentan con el count seran para pintar los extremos
+
 	  DRAW_PALLET:begin
 				px_wr<=1;
 				count<=count+1;
@@ -314,7 +315,9 @@ MAQUINA DE ESTADOS DE LA PALETA
 						status_pallet<=PLAY_GAME;
 				end						
 		end	 
-			 
+
+A continuación se muestra el estado de juego que tiene como condiciones cuando se oprime el boton de la derecha o el de la izquierda y permite el movimiento de la posicion, en el caso de que se llegue a un extremo, se volvera a entrar a este bloque esperando que el usuario oprime el otro boton para asi poder mover la barra
+
 		PLAY_GAME: begin
 			count<=0;
 			px_wr<=0;
@@ -335,6 +338,8 @@ MAQUINA DE ESTADOS DE LA PALETA
 				end
 			end
 		end
+
+Por otro lado, tendremos los estados de movimiento donde se aumenta o disminuye la posicion inicial y se vuelve al estado de dibujar la paleta, ademas se encuentra el estado para finalizar el juego y volver a empezar
 
 		PALLET_MOVE_RH:begin
 	 
@@ -357,7 +362,12 @@ MAQUINA DE ESTADOS DE LA PALETA
     end
  
 MAQUINA DE ESTADOS DE LA PELOTA
+A continuación se muestra la máquina de estados de la pelota
+![image1](https://github.com/unal-edigital1-lab/wp01-vga-grupo05/blob/main/Ball.png)
 
+CODIGO DE LA MAQUINA DE ESTADOS PARA LA  PELOTA
+
+Se da inicio igual que cuando se hizo con la paleta a darle un valor inicial a las variables de contador y de escritura, en este caso no se realizo un estado para imprimir solo la bolita porque otros estados necesitaban acceso remoto al mismo bloque, entonces se hizo el bloque al principio y tiene una logica parecida a la que hizo con la paleta, se crea la pelota en si que en este caso es de un pixel y se dibujan otras parte a su alrededor, arriba, abajo, al lado derecho e izquierdo, para facilitar el movimiento
 
 	always @(posedge clk)begin
 		if (rst) begin
@@ -396,7 +406,8 @@ MAQUINA DE ESTADOS DE LA PELOTA
 			endcase	
 		end
 		
-		
+Se inicia la mauina de estados para la pelota designando un valor para la posicion de la pelota en el eje X y Y, asi como pintando la pelota al tener un registro que puede ser 1 o 0 para acceder al bloque que se explico anteriormente, después de pintarla se procede a hacer un primer movimiento de la pelta, que se considera aleatorio	
+	
 		case(status_ball) 
 		
 				START_BALL: begin
@@ -408,7 +419,11 @@ MAQUINA DE ESTADOS DE LA PELOTA
 						status_ball=PLAY_VERTICAL;
 					end
 				end
-				
+
+A continuación se encontrara con dos secciones generales y cuatro expecificas, las secciones generales seran para el movimiento horizontal o vertical, solo que cada una de estas presenta dos variaciones Arriba-Abajo, Lado derecho-Lado izquierdo y asi mismo cambiara la direccion de la pelota ante el movimiento.
+
+Cabe resaltar que en dos de los estados se deben establecer las condiciones para cuando la pelota choca contra la paleta y cambia su direccion arbitrariamente y estas estan dadas por la comparacion de la direccion en memoria de donde se esta moviendo ambos objetos:
+
 				PLAY_VERTICAL: begin
 					if(done_ball)begin
 						print_ball=0;
@@ -491,10 +506,9 @@ MAQUINA DE ESTADOS DE LA PELOTA
 	
       endmodule 
 
-
-
-ram
+MODULO DE MEMORIA RAM
 ---
+A continuación se describe el modulo "buffer_ram_dp" que se encarga de todo el manejo de la memoria, puertos de escritura y lectura, asi que asi mismo son designadas sus entradas y salidas que tienen con ellas una direccion en la memoria y el dato o información que se escribira o leera en la misma
 
     module buffer_ram_dp#( 
 	parameter AW = 15, // Cantidad de bits  de la direccion de memoria
@@ -525,7 +539,7 @@ Numero de posiciones totales de memoria y construccion de la matriz para la mism
       localparam NPOS = 2 ** AW; 
       reg [DW-1: 0] ram [0: NPOS-1]; 
  
-Bloque que alterna la escritura de los datos de la memoria entre las dos maquinas de estado del juego(dos puertos)
+Este puede considerarse un bloque esencial ya que permite el funcionamiento de las dos maquinas de estado que se realizaron, de otra forma no se podria hacer, ya que la memoria tendria solo un puerto de escritura y no sabria exactamente que leer, entonces este bloque alterna la escritura de los datos de la memoria entre las dos maquinas de estado del juego(dos puertos), teniendo en cuenta sus regwrites
  
     reg selector=0;
     always @(posedge clk_w)begin
@@ -540,22 +554,17 @@ Bloque que alterna la escritura de los datos de la memoria entre las dos maquina
 		end
     end
 
-Lectura  de la memoria 
+Mientras que anteriormente se hablaba de los dos puertos para la escritura, en el siguiente bloque se hace la lectura  de la memoria 
 
     always @(posedge clk_r) begin 
  		data_out <= ram[addr_out]; 
     end
 
-
     endmodule
-
-
 
 Driver VGA
 ----
-
-
-Modulo VGA
+Por ultimo, nos encontramos con el modulo de Driver de la VGA, en este se tienen todos los paremetros para imprimir los pixele, la sincronizacion de manera vertial u horizontal, ademas de posiciones de los pixeles
 
     module VGA_Driver640x480 (
 	input rst,
@@ -568,7 +577,7 @@ Modulo VGA
 	output  [10:0] posY 		// posicion en vertical  del pixel siguiente
     );
 
-Tamaño de la pantalla en horizontal y vertical, asi como las margenes de la pantalla
+Se identifica como parametros el tamaño de la pantalla en horizontal y vertical, asi como las margenes de la pantalla
 
      localparam SCREEN_X = 1368;  // tamaño de la pantalla visible en horizontal 1368     
      localparam FRONT_PORCH_X =72;  
@@ -583,8 +592,9 @@ Tamaño de la pantalla en horizontal y vertical, asi como las margenes de la pan
      localparam BACK_PORCH_Y = 23;
      localparam TOTAL_SCREEN_Y = SCREEN_Y+FRONT_PORCH_Y+SYNC_PULSE_Y+BACK_PORCH_Y; 	// total pixel pantalla en Vertical 
 
+Se establece el proceso de imprimir en la VGA con contadores para el eje X y el eje Y
 
-    reg  [10:0] countX;
+	reg  [10:0] countX;
     reg  [10:0] countY;
 
     assign posX    = countX;
@@ -621,10 +631,9 @@ Tamaño de la pantalla en horizontal y vertical, asi como las margenes de la pan
     endmodule
 
 
-Testbench
+Modulo Testbench
 ----
-
-
+Esta modulo ue utilizado unicamente para el primer proceso de simulacion para verificar el funcionamiento y llenado de memoria, impresion de la pantalla con el simulador virtual y tiene las mismas salidas que se utilizan para la implementacion, aqui se instancia el modulo top del proyecto para su funcionamiento
 
     module test_VGA_TB;
 
@@ -670,20 +679,7 @@ Testbench
 		
 		bntra=0;
 		bntla=0;
-		bntrb=0;
-		bntlb=0;
-	/*	bntra=1;
-		#5
-		bntra=0;
-		bntla=1;
-		#5000
-		bntla=0;
-		bntrb=1;
-		#5000
-		bntrb=0;
-		bntlb=1;
-		#5000
-		bntlb=0;*/
+
 	end
 
 	always #2 clk  = ~clk;
@@ -693,7 +689,7 @@ Testbench
 	reg [9:0]row_cnt=0;
 	
 INICIO DE  GENERACION DE ARCHIVO test_vga	
-	
+En estos dos bloques se produce un archivo.txt que sera el utilizado por el simulador virtual utilizado para imprimir la pantalla
 
 	/* log para cargar de archivo*/
 	integer f;
@@ -711,24 +707,24 @@ A continuación se realizo la siguiente línea de código para porder realizar l
 	@(posedge clk_wf)
 		$fwrite(f,"%0t ps: %b %b %b00 %b00 %b0\n",$time,VGA_Hsync_n, VGA_Vsync_n, VGA_R,VGA_G,VGA_B);
 
-		
 	end
-	
     endmodule
 
-
-Proceso
+PROCESO
 --
-Para crear el juego final primero se creo la barra
+
+En esta sección se presentan los resultados parciales del proyecto, es decir, todo el proceso que se tuvo que dar de implementación :
+
+Para crear el juego final primero se creo la barra, se puso en funcionamiento la maquina de estado de la paleta, teniendo en cuenta que solo se tenia un puerto de escritura y se obtuvo lo siguiente, considerando que la paleta tenia cierta dimension, que se dio un escalamiento de la pantalla para que se mostrara en toda, además de posicionar la pantalla abajo para que tuviera una mayor aproximacion al juego, aunque en el PONG se maneje dos paletas, consideramos solo realizar una:
 ![image1](https://github.com/unal-edigital1-lab/wp01-vga-grupo05/blob/main/WhatsApp%20Image%202020-12-18%20at%2013.48.57.jpeg)
 
-Luego se creo la pelota
+Luego se procedio a crear la pelota
 ![image1](https://github.com/unal-edigital1-lab/wp01-vga-grupo05/blob/main/WhatsApp%20Image%202020-12-18%20at%2013.48.24.jpeg)
 
 finalmente se juntaron las dos cosas como producto final 
 
 
-Resultados
+RESULTADOS
 --
 
 A continuacion se presenta el video de la implementación.
