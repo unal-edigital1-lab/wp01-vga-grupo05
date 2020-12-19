@@ -718,14 +718,13 @@ En esta sección se presentan los resultados parciales del proyecto, es decir, t
 Para crear el juego final primero se creo la barra, se puso en funcionamiento la maquina de estado de la paleta, teniendo en cuenta que solo se tenia un puerto de escritura y se obtuvo lo siguiente, considerando que la paleta tenia cierta dimension, que se dio un escalamiento de la pantalla para que se mostrara en toda, además de posicionar la pantalla abajo para que tuviera una mayor aproximacion al juego, aunque en el PONG se maneje dos paletas, consideramos solo realizar una:
 ![image1](https://github.com/unal-edigital1-lab/wp01-vga-grupo05/blob/main/WhatsApp%20Image%202020-12-18%20at%2013.48.57.jpeg)
 
-Luego se procedio a crear la pelota
+Luego se procedio a crear la pelota que era de un solo pixel y se midio el movimiento de la misma pero contamos con que la frecuencia era muy alta entonces se alcanzaba a pintar muchas veces en la pantalla, formando una pintura abstracta, pero arreglando el reloj que entraba al modulo del juego, es decir, haciendo un divisor de frecuencia para que los 50MHz no fueran con los que funcionara sino con 5KHz y asi se moviera más lento y fuera visible el movimiento por el ojo humano. De igual forma, al principio solo probamos la maquina de estados de la pelota por si sola:
 ![image1](https://github.com/unal-edigital1-lab/wp01-vga-grupo05/blob/main/WhatsApp%20Image%202020-12-18%20at%2013.48.24.jpeg)
 
-finalmente se juntaron las dos cosas como producto final 
+Finalmente se juntaron las dos cosas como producto final, teniendo en cuenta que se tenia que crear dos puertos de escritura, cada uno para cada maquina de estado, ya teniendo un reloj de menor frecuencia , ambos objetos se movian adecuadamente, aunque se presentaban bugs repentinos, se supone o se atribuye a compartir la misma frecuencia de reloj y que solo se tenia un puerto de lectura,asi que podian haber interferencias a la hora de ver las dos cosas en pantalla. A continuación se podrá observar los resultados representados por un video de funcionamiento del juego
 
 
 RESULTADOS
 --
-
 A continuacion se presenta el video de la implementación.
 https://drive.google.com/file/d/1d2US2RaaHcAs3Chz77WddsDbuIWiTE4V/view?usp=sharing
